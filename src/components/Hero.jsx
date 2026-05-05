@@ -30,7 +30,7 @@ export default function Hero() {
             <button className="bg-blue-900 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-800 transition">
               Mulai Sekarang →
             </button>
-          </Link>
+          </Link>D
 
 
         </div>

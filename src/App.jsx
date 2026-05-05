@@ -8,12 +8,12 @@ import Profil from "./pages/profile";
 import Asesmen from "./pages/asesmen"; // 🔥 WAJIB
 import Hasil from "./pages/hasil";
 import ProfilSelesai from "./pages/profilSelesai";
-import Settings from "./pages/Settings";
+import Settings from "./pages/settings";
 import EditProfil from "./pages/EditProfil";
 import Perbandingan from "./pages/perbandingan";
 import Rekomendasi from "./pages/rekomendasi";
 import Eksplorasi from "./pages/eksplorasi";
-import DetailUMKM from "./pages/detailUMKM";
+import DetailUMKM from "./pages/detailumkm";
 
 
 function App() {
