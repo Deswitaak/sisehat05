@@ -31,6 +31,7 @@ export default function Perbandingan() {
   const factors = location.state?.factors || saved?.factors || [];
   const total = location.state?.total || saved?.total || 0;
   const compareData = location.state?.compareData || [];
+  const umkm = location.state;
 
   // 🔥 redirect kalau kosong
   useEffect(() => {
@@ -78,10 +79,10 @@ export default function Perbandingan() {
     <div className="bg-[#f4f7fb] min-h-screen">
       <NavbarDashboard />
 
-      <div className="px-16 py-10">
+      <div className="px-4 md:px-8 lg:px-16 py-6 md:py-10">
 
         {/* HEADER */}
-        <h1 className="text-3xl font-bold text-blue-900">
+        <h1 className="text-2xl md:text-3xl font-bold text-blue-900">
           Perbandingan Asesmen Bisnis
         </h1>
         <p className="text-gray-500 mt-2">
@@ -89,7 +90,7 @@ export default function Perbandingan() {
         </p>
 
         {/* TOP FILTER */}
-        <div className="grid grid-cols-2 gap-6 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <div className="bg-white p-4 rounded-xl shadow">
             <p className="text-xs text-gray-400 mb-2">Pilih Asesmen</p>
             <select className="w-full border p-2 rounded-lg">

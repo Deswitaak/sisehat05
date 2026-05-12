@@ -83,13 +83,13 @@ export default function Hasil() {
     <div className="bg-[#f4f7fb] min-h-screen">
       <NavbarDashboard />
 
-      <div className="px-16 py-10">
+      <div className="px-4 md:px-8 lg:px-16 py-6 md:py-10">
 
         {/* HEADER */}
         <div className="flex justify-between items-start">
           <div>
             <p className="text-sm text-gray-400">Asesmen › Hasil Analisis</p>
-            <h1 className="text-3xl font-bold text-blue-900 mt-2">
+            <h1 className="text-2xl md:text-3xl font-bold text-blue-900 mt-2">
               Hasil Kesehatan Bisnis Anda
             </h1>
             <p className="text-gray-500 mt-2">

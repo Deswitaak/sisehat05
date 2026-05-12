@@ -1,0 +1,1718 @@
+[
+  {
+    "OUTLIER PER RESPONDEN": "ID",
+    "OUTLIER PER FAKTOR": "Faktor"
+  },
+  {
+    "OUTLIER PER RESPONDEN": 1,
+    "OUTLIER PER FAKTOR": "Institutional Resources"
+  },
+  {
+    "OUTLIER PER RESPONDEN": 2,
+    "OUTLIER PER FAKTOR": "Leader Involvement "
+  },
+  {
+    "OUTLIER PER RESPONDEN": 3,
+    "OUTLIER PER FAKTOR": "Workplace Quality"
+  },
+  {
+    "OUTLIER PER RESPONDEN": 4,
+    "OUTLIER PER FAKTOR": "Organizational Values"
+  },
+  {
+    "OUTLIER PER RESPONDEN": 5,
+    "OUTLIER PER FAKTOR": "Operational Stability"
+  },
+  {
+    "OUTLIER PER RESPONDEN": 6,
+    "OUTLIER PER FAKTOR": "Economic Performance"
+  },
+  {
+    "OUTLIER PER RESPONDEN": 7,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 8,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 9,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 10,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 11,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 12,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 13,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 14,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 15,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 16,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 17,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 18,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 19,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 20,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 21,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 22,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 23,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 24,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 25,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 26,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 27,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 28,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 29,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 30,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 31,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 32,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 33,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 34,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 35,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 36,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 37,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 38,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 39,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 40,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 41,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 42,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 43,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 44,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 45,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 46,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 47,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 48,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 49,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 50,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 51,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 52,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 53,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 54,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 55,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 56,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 57,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 58,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 59,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 60,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 61,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 62,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 63,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 64,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 65,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 66,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 67,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 68,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 69,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 70,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 71,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 72,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 73,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 74,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 75,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 76,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 77,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 78,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 79,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 80,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 81,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 82,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 83,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 84,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 85,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 86,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 87,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 88,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 89,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 90,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 91,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 92,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 93,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 94,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 95,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 96,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 97,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 98,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 99,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 100,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 101,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 102,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 103,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 104,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 105,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 106,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 107,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 108,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 109,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 110,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 111,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 112,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 113,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 114,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 115,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 116,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 117,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 118,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 119,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 120,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 121,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 122,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 123,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 124,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 125,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 126,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 127,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 128,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 129,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 130,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 131,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 132,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 133,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 134,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 135,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 136,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 137,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 138,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 139,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 140,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 141,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 142,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 143,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 144,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 145,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 146,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 147,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 148,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 149,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 150,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 151,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 152,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 153,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 154,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 155,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 156,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 157,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 158,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 159,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 160,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 161,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 162,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 163,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 164,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 165,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 166,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 167,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 168,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 169,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 170,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 171,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 172,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 173,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 174,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 175,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 176,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 177,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 178,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 179,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 180,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 181,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 182,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 183,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 184,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 185,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 186,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 187,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 188,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 189,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 190,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 191,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 192,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 193,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 194,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 195,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 196,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 197,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 198,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 199,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 200,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 201,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 202,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 203,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 204,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 205,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 206,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 207,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 208,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 209,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 210,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 211,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 212,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 213,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 214,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 215,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 216,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 217,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 218,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 219,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 220,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 221,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 222,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 223,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 224,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 225,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 226,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 227,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 228,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 229,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 230,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 231,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 232,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 233,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 234,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 235,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 236,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 237,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 238,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 239,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 240,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 241,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 242,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 243,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 244,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 245,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 246,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 247,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 248,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 249,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 250,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 251,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 252,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 253,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 254,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 255,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 256,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 257,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 258,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 259,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 260,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 261,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 262,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 263,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 264,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 265,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 266,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 267,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 268,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 269,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 270,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 271,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 272,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 273,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 274,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 275,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 276,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 277,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 278,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 279,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 280,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 281,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 282,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 283,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 284,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 285,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 286,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 287,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 288,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 289,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 290,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 291,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 292,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 293,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 294,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 295,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 296,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 297,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 298,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 299,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 300,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 301,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 302,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 303,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 304,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 305,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 306,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 307,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 308,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 309,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 310,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 311,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 312,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 313,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 314,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 315,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 316,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 317,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 318,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 319,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 320,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 321,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 322,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 323,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 324,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 325,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 326,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 327,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 328,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 329,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 330,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 331,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 332,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 333,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 334,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 335,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 336,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 337,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 338,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 339,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 340,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 341,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 342,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 343,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 344,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 345,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 346,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 347,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 348,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 349,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 350,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 351,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 352,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 353,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 354,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 355,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 356,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 357,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 358,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 359,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 360,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 361,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 362,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 363,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 364,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 365,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 366,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 367,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 368,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 369,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 370,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 371,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 372,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 373,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 374,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 375,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 376,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 377,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 378,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 379,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 380,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 381,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 382,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 383,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 384,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 385,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 386,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 387,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 388,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 389,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 390,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 391,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 392,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 393,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 394,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 395,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 396,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 397,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 398,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 399,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 400,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 401,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 402,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 403,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 404,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 405,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 406,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 407,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 408,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 409,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 410,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 411,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 412,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 413,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 414,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 415,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 416,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 417,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 418,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 419,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 420,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 421,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 422,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 423,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 424,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 425,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 426,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 427,
+    "OUTLIER PER FAKTOR": null
+  },
+  {
+    "OUTLIER PER RESPONDEN": 428,
+    "OUTLIER PER FAKTOR": null
+  }
+]

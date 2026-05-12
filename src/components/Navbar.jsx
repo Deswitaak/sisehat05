@@ -17,7 +17,7 @@ export default function Navbar({ active }) {
       <h1 className="font-bold text-lg text-blue-900">SiSehat</h1>
 
       {/* MENU */}
-      <div className="flex gap-8 text-sm text-gray-500">
+      <div className="flex gap-4 md:gap-8 text-sm text-gray-500">
         <span className="text-blue-900 font-semibold">Beranda</span>
         <span>Asesmen</span>
         <span>Perbandingan</span>

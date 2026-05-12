@@ -1,5 +1,14 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate
+} from "react-router-dom";
+
 import NavbarDashboard from "../components/NavbarDashboard";
+
+import {
+  Radar
+} from "react-chartjs-2";
+
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -9,7 +18,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Radar } from "react-chartjs-2";
 
 ChartJS.register(
   RadialLinearScale,
@@ -21,171 +29,385 @@ ChartJS.register(
 );
 
 export default function DetailUMKM() {
+
   const location = useLocation();
   const navigate = useNavigate();
 
   const data = location.state;
 
-  // ❌ fallback kalau user refresh
+  // 🔥 FALLBACK
   if (!data) {
     return (
-      <div className="p-10">
-        <p>Data UMKM tidak ditemukan</p>
-        <button
-          onClick={() => navigate("/eksplorasi")}
-          className="mt-4 bg-blue-900 text-white px-4 py-2 rounded"
-        >
-          Kembali ke Eksplorasi
-        </button>
+      <div className="bg-[#f4f7fb] min-h-screen flex items-center justify-center">
+
+        <div className="bg-white p-10 rounded-2xl shadow text-center">
+
+          <h1 className="text-2xl font-bold text-blue-900">
+            Data UMKM Tidak Ditemukan
+          </h1>
+
+          <button
+            onClick={() => navigate("/eksplorasi")}
+            className="mt-6 bg-blue-900 text-white px-5 py-2 rounded-xl"
+          >
+            Kembali ke Eksplorasi
+          </button>
+
+        </div>
+
       </div>
     );
   }
 
-  // 🔥 dummy faktor (bisa nanti dari backend)
-  const factors = [
-    { name: "Organization Values", score: 85 },
-    { name: "Leader Involvement", score: 80 },
-    { name: "Institutional Resources", score: 55 },
-    { name: "Economics Performance", score: 72 },
-    { name: "Operational Stability", score: 90 },
-    { name: "Work Environment", score: 68 },
-  ];
+  // 🔥 RADAR
+  const radarData = {
 
-  // 🔥 cari terbaik & terlemah
-  const strongest = factors.reduce((a, b) =>
-    a.score > b.score ? a : b
-  );
+    labels: [
+      "OV",
+      "LI",
+      "IR",
+      "OS",
+      "QW",
+      "EP",
+    ],
 
-  const weakest = factors.reduce((a, b) =>
-    a.score < b.score ? a : b
-  );
-
-  // 🔥 chart
-  const chartData = {
-    labels: factors.map((f) => f.name),
     datasets: [
       {
         label: data.nama,
-        data: factors.map((f) => f.score),
-        backgroundColor: "rgba(59,130,246,0.2)",
-        borderColor: "#163456",
+
+        data: [
+          data.ov,
+          data.li,
+          data.ir,
+          data.os,
+          data.qw,
+          data.ep,
+        ],
+
+        backgroundColor:
+          "rgba(37,99,235,0.2)",
+
+        borderColor:
+          "#1d4ed8",
+
+        borderWidth: 2,
       },
     ],
   };
 
-  const avgScore = Math.round(
-    factors.reduce((acc, f) => acc + f.score, 0) / factors.length
-  );
+  const options = {
+    scales: {
+      r: {
+        min: 0,
+        max: 5,
+
+        ticks: {
+          stepSize: 1,
+        },
+      },
+    },
+  };
+
+  // 🔥 STATUS
+  const getStatus = (value) => {
+
+    if (value >= 4)
+      return {
+        label: "Sangat Baik",
+        color:
+          "bg-green-100 text-green-700",
+      };
+
+    if (value >= 3)
+      return {
+        label: "Baik",
+        color:
+          "bg-blue-100 text-blue-700",
+      };
+
+    return {
+      label: "Perlu Perbaikan",
+      color:
+        "bg-red-100 text-red-600",
+    };
+  };
+
+  const faktorData = [
+
+    {
+      name: "Organizational Values",
+      value: data.ov,
+    },
+
+    {
+      name: "Leader Involvement",
+      value: data.li,
+    },
+
+    {
+      name: "Institutional Resources",
+      value: data.ir,
+    },
+
+    {
+      name: "Operational Stability",
+      value: data.os,
+    },
+
+    {
+      name: "Workplace Quality",
+      value: data.qw,
+    },
+
+    {
+      name: "Economic Performance",
+      value: data.ep,
+    },
+  ];
 
   return (
     <div className="bg-[#f4f7fb] min-h-screen">
+
       <NavbarDashboard />
 
-      <div className="px-16 py-10">
+      <div className="px-4 md:px-8 lg:px-16 py-6 md:py-10">
+
+        {/* BACK */}
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 text-blue-900 font-medium"
+        >
+          ← Kembali
+        </button>
 
         {/* HEADER */}
-        <h1 className="text-3xl font-bold text-blue-900">
-          Analisis Maturitas Bisnis
-        </h1>
-        <p className="text-gray-500 mt-2">
-          Detail profil kesehatan organisasi berdasarkan 6 parameter strategis
-        </p>
+        <div className="bg-white rounded-2xl p-8 shadow-sm border">
 
-        {/* GRID */}
-        <div className="grid grid-cols-3 gap-6 mt-8">
+          <div className="flex justify-between items-start">
 
-          {/* LEFT PROFILE */}
-          <div className="bg-white p-6 rounded-xl shadow">
+            <div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gray-200 rounded-xl mx-auto mb-3"></div>
-              <h2 className="font-semibold text-lg">{data.nama}</h2>
+              <h1 className="text-2xl md:text-3xl font-bold text-blue-900">
+                {data.nama}
+              </h1>
 
-              <span className="text-xs bg-blue-100 px-2 py-1 rounded">
-                Verified Merchant
-              </span>
+              <p className="text-gray-500 mt-2">
+                Detail kesehatan organisasi UMKM
+                berdasarkan hasil asesmen statistik.
+              </p>
+
             </div>
 
-            <div className="mt-6 space-y-2 text-sm">
-              <p><b>Jenis Usaha:</b> {data.jenis}</p>
-              <p><b>Provinsi:</b> {data.provinsi}</p>
-              <p><b>Lama Usaha:</b> 4 Tahun</p>
-              <p><b>Skala:</b> Mikro</p>
-            </div>
+            <div className={`px-4 py-2 rounded-full text-sm font-semibold ${
+              data.skor >= 110
+                ? "bg-green-100 text-green-700"
+                : data.skor >= 90
+                ? "bg-blue-100 text-blue-700"
+                : "bg-red-100 text-red-600"
+            }`}>
 
-            {/* 🔥 BUTTON COMPARE */}
-            <button
-              onClick={() =>
-                navigate("/perbandingan", {
-                  state: { compareData: [data] },
-                })
-              }
-              className="mt-6 w-full bg-blue-900 text-white py-3 rounded-lg"
-            >
-              Bandingkan dengan Saya
-            </button>
+              {data.jenis}
+
+            </div>
 
           </div>
 
-          {/* RIGHT CHART */}
-          <div className="col-span-2 bg-white p-6 rounded-xl shadow">
+          {/* SCORE */}
+          <div className="grid grid-cols-3 gap-6 mt-8">
 
-            <h3 className="font-semibold text-blue-900 mb-4">
-              Profil 6 Faktor Organisasi
-            </h3>
+            <div className="bg-[#f4f7fb] p-5 rounded-xl">
 
-            <Radar data={chartData} />
+              <p className="text-sm text-gray-400">
+                Total Score
+              </p>
 
-            {/* INSIGHT */}
-            <div className="grid grid-cols-3 gap-4 mt-6 text-sm">
-
-              <div className="bg-gray-100 p-3 rounded">
-                <p className="text-xs text-gray-400">Kekuatan Utama</p>
-                <p className="font-semibold">{strongest.name}</p>
-              </div>
-
-              <div className="bg-gray-100 p-3 rounded">
-                <p className="text-xs text-gray-400">Area Pengembangan</p>
-                <p className="font-semibold">{weakest.name}</p>
-              </div>
-
-              <div className="bg-gray-100 p-3 rounded">
-                <p className="text-xs text-gray-400">Status</p>
-                <p className="font-semibold">
-                  {avgScore >= 80 ? "Kuat" : avgScore >= 65 ? "Stabil" : "Risiko"}
-                </p>
-              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mt-2">
+                {data.skor}
+              </h2>
 
             </div>
+
+            <div className="bg-[#f4f7fb] p-5 rounded-xl">
+
+              <p className="text-sm text-gray-400">
+                Status UMKM
+              </p>
+
+              <h2 className="text-xl font-bold text-blue-900 mt-2">
+                {data.jenis}
+              </h2>
+
+            </div>
+
+            <div className="bg-[#f4f7fb] p-5 rounded-xl">
+
+              <p className="text-sm text-gray-400">
+                ID Responden
+              </p>
+
+              <h2 className="text-2xl font-bold text-blue-900 mt-2">
+                #{data.id}
+              </h2>
+
+            </div>
+
+          </div>
+
+          {/* RADAR */}
+          <div className="mt-12">
+
+            <h2 className="text-xl font-semibold text-blue-900 mb-6">
+
+              Visualisasi 6 Faktor Strategis
+
+            </h2>
+
+            <Radar
+              data={radarData}
+              options={options}
+            />
 
           </div>
 
         </div>
 
-        {/* BOTTOM */}
+        {/* CARD FAKTOR */}
         <div className="grid grid-cols-3 gap-6 mt-8">
 
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="font-semibold mb-2">Tren Pertumbuhan</h3>
-            <div className="h-24 bg-gray-100 rounded"></div>
+          {faktorData.map((item, i) => (
+
+            <div
+              key={i}
+              className="bg-white rounded-2xl shadow-sm border p-6"
+            >
+
+              <p className="text-sm text-gray-400">
+
+                {item.name}
+
+              </p>
+
+              <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mt-3">
+
+                {item.value.toFixed(1)}
+
+              </h2>
+
+              <div className="mt-4">
+
+                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                  getStatus(item.value).color
+                }`}>
+
+                  {getStatus(item.value).label}
+
+                </span>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+        {/* TABLE */}
+        <div className="bg-white rounded-2xl shadow-sm border overflow-hidden mt-10">
+
+          <div className="px-6 py-5 border-b">
+
+            <h2 className="font-semibold text-blue-900">
+
+              Detail Analisis Faktor
+
+            </h2>
+
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="font-semibold mb-2">Skor Rata-rata</h3>
-            <p className="text-3xl font-bold text-blue-900">{avgScore}</p>
-          </div>
+          <table className="w-full text-sm">
 
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="font-semibold mb-2">Sertifikasi</h3>
-            <ul className="text-sm list-disc ml-4">
-              <li>Halal Indonesia</li>
-              <li>P-IRT Dinas Kesehatan</li>
-            </ul>
-          </div>
+            <thead className="bg-gray-50 text-gray-500">
+
+              <tr>
+
+                <th className="p-4 text-left">
+                  Faktor
+                </th>
+
+                <th>
+                  Nilai
+                </th>
+
+                <th>
+                  Status
+                </th>
+
+                <th>
+                  Insight
+                </th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              {faktorData.map((item, i) => {
+
+                const status =
+                  getStatus(item.value);
+
+                return (
+
+                  <tr
+                    key={i}
+                    className="border-t text-center"
+                  >
+
+                    <td className="p-4 text-left">
+
+                      {item.name}
+
+                    </td>
+
+                    <td className="font-semibold">
+
+                      {item.value.toFixed(1)}
+
+                    </td>
+
+                    <td>
+
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${status.color}`}>
+
+                        {status.label}
+
+                      </span>
+
+                    </td>
+
+                    <td className="text-gray-500">
+
+                      {item.value >= 4
+                        ? "Performa sangat optimal"
+                        : item.value >= 3
+                        ? "Performa cukup baik"
+                        : "Membutuhkan peningkatan"}
+
+                    </td>
+
+                  </tr>
+                );
+              })}
+
+            </tbody>
+
+          </table>
 
         </div>
 
       </div>
+
     </div>
   );
 }

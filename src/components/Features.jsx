@@ -5,7 +5,7 @@ export default function Features() {
     <section className="px-12 py-20 bg-[#f5f7fb]">
 
       {/* TITLE */}
-      <h2 className="text-3xl font-bold text-center">
+      <h2 className="text-2xl md:text-3xl font-bold text-center">
         Solusi Data Terintegrasi
       </h2>
 
@@ -14,7 +14,7 @@ export default function Features() {
       </p>
 
       {/* GRID */}
-      <div className="grid grid-cols-2 gap-6 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
 
         {/* ===== CARD 1 (KIRI ATAS) ===== */}
         <div className="h-[180px] p-6 border rounded-xl bg-white flex justify-between items-start relative hover:shadow-lg transition">

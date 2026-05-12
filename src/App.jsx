@@ -36,9 +36,10 @@ function App() {
          <Route path="/perbandingan" element={<Perbandingan />} />
         <Route path="/rekomendasi" element={<Rekomendasi />} />
         <Route path="/eksplorasi" element={<Eksplorasi />} />
-        <Route path="/umkm/:id" element={<DetailUMKM />} />
+         <Route path="/detailumkm" element={<DetailUMKM />}/>
         <Route path="/settings" element={<Settings />} />
         <Route path="/profil" element={<EditProfil />} />
+      
 
       </Routes>
     </BrowserRouter>

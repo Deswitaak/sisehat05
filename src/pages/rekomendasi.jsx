@@ -67,7 +67,7 @@ export default function Rekomendasi() {
     <div className="bg-[#f4f7fb] min-h-screen">
       <NavbarDashboard />
 
-      <div className="px-16 py-10">
+      <div className="px-4 md:px-8 lg:px-16 py-6 md:py-10">
 
         {/* HEADER */}
         <div className="bg-white p-6 rounded-xl shadow flex justify-between">

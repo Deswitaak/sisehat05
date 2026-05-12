@@ -1,8 +1,19 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import {
+  Link,
+  useLocation,
+  useNavigate
+} from "react-router-dom";
+
+import {
+  useState,
+  useRef,
+  useEffect
+} from "react";
+
 import LogoutModal from "./LogoutModal";
 
 export default function NavbarDashboard() {
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -10,6 +21,20 @@ export default function NavbarDashboard() {
   const [showLogout, setShowLogout] = useState(false);
 
   const dropdownRef = useRef();
+
+  // 🔥 AMBIL DATA USER
+  const profileData = JSON.parse(
+    localStorage.getItem("profileData")
+  );
+
+  // 🔥 FOTO PROFILE
+const profilePhoto =
+  localStorage.getItem("profilePhoto");
+
+  // 🔥 USER REGISTER
+  const userData = JSON.parse(
+    localStorage.getItem("user")
+  );
 
   const menu = [
     { name: "Beranda", path: "/beranda" },
@@ -19,16 +44,29 @@ export default function NavbarDashboard() {
     { name: "Eksplorasi", path: "/eksplorasi" },
   ];
 
-  // close dropdown
+  // 🔥 CLOSE DROPDOWN
   useEffect(() => {
+
     const handleClickOutside = (e) => {
-      if (!dropdownRef.current?.contains(e.target)) {
+
+      if (
+        !dropdownRef.current?.contains(e.target)
+      ) {
         setOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
+
+    document.addEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+
     return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+
   }, []);
 
   return (
@@ -36,12 +74,17 @@ export default function NavbarDashboard() {
       <nav className="flex justify-between items-center px-12 py-5 bg-white shadow-sm relative">
 
         {/* LOGO */}
-        <h1 className="font-bold text-lg text-blue-900">SiSehat</h1>
+        <h1 className="font-bold text-lg text-blue-900">
+          SiSehat
+        </h1>
 
         {/* MENU */}
-        <div className="flex gap-8 text-sm">
+        <div className="flex gap-4 md:gap-8 text-sm">
+
           {menu.map((item) => {
-            const isActive = location.pathname.startsWith(item.path);
+
+            const isActive =
+              location.pathname.startsWith(item.path);
 
             return (
               <Link
@@ -57,10 +100,14 @@ export default function NavbarDashboard() {
               </Link>
             );
           })}
+
         </div>
 
         {/* RIGHT */}
-        <div className="flex items-center gap-4 relative" ref={dropdownRef}>
+        <div
+          className="flex items-center gap-4 relative"
+          ref={dropdownRef}
+        >
 
           {/* ⚙️ */}
           <button
@@ -71,23 +118,72 @@ export default function NavbarDashboard() {
           </button>
 
           {/* USER */}
-          <div className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full">
-            <span className="text-sm">Budi Santoso</span>
-            <img
-              src="https://i.pravatar.cc/40"
-              className="w-8 h-8 rounded-full"
-            />
-          </div>
+<div
+  onClick={() => navigate("/profil")}
+  className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full cursor-pointer hover:bg-gray-200 transition"
+>
+
+  {/* NAMA */}
+  <span className="text-sm font-medium">
+
+    {profileData?.nama ||
+      userData?.name ||
+      "Pengguna"}
+
+  </span>
+
+  {/* FOTO */}
+  {localStorage.getItem("profilePhoto") ? (
+
+    <img
+      src={localStorage.getItem("profilePhoto")}
+      alt="profile"
+      className="w-8 h-8 rounded-full object-cover"
+    />
+
+  ) : (
+
+    <div className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center text-xs font-semibold">
+
+      {(profileData?.nama ||
+        userData?.name ||
+        "U")
+        .charAt(0)
+        .toUpperCase()}
+
+    </div>
+
+  )}
+
+</div>
 
           {/* DROPDOWN */}
           {open && (
+
             <div className="absolute right-0 top-14 w-64 bg-white rounded-2xl shadow-xl border p-4 z-50">
 
+              {/* ACCOUNT */}
               <div className="mb-3">
-                <p className="text-xs text-gray-400">AKUN SAYA</p>
-                <p className="text-sm text-gray-700">
-                  budi.santoso@email.com
+
+                <p className="text-xs text-gray-400">
+                  AKUN SAYA
                 </p>
+
+                <p className="text-sm font-semibold text-blue-900 mt-1">
+
+                  {profileData?.nama ||
+                    userData?.name ||
+                    "Pengguna"}
+
+                </p>
+
+                <p className="text-sm text-gray-500 mt-1">
+
+                  {userData?.email ||
+                    "user@email.com"}
+
+                </p>
+
               </div>
 
               <div className="border-t mb-2"></div>
@@ -109,7 +205,7 @@ export default function NavbarDashboard() {
                   ⚙️ Settings
                 </button>
 
-                {/* 🔥 LOGOUT */}
+                {/* LOGOUT */}
                 <button
                   onClick={() => {
                     setShowLogout(true);
@@ -121,18 +217,25 @@ export default function NavbarDashboard() {
                 </button>
 
               </div>
+
             </div>
+
           )}
+
         </div>
+
       </nav>
 
-      {/* 🔥 MODAL LOGOUT */}
+      {/* MODAL */}
       <LogoutModal
         open={showLogout}
         onClose={() => setShowLogout(false)}
         onConfirm={() => {
+
           localStorage.clear();
+
           navigate("/");
+
         }}
       />
     </>

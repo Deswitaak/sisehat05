@@ -6,7 +6,7 @@ export default function NavbarLanding() {
       
       <h1 className="font-bold text-lg text-blue-900">SiSehat</h1>
 
-      <div className="flex gap-8 text-sm text-gray-500">
+      <div className="flex gap-4 md:gap-8 text-sm text-gray-500">
         <span>Beranda</span>
         <span>Asesmen</span>
         <span>Perbandingan</span>

@@ -1,8 +1,8 @@
 export default function Settings() {
   return (
-    <div className="bg-[#f4f7fb] min-h-screen px-16 py-10">
+    <div className="bg-[#f4f7fb] min-h-screen px-4 md:px-8 lg:px-16 py-6 md:py-10">
 
-      <h1 className="text-3xl font-bold text-blue-900 text-center">
+      <h1 className="text-2xl md:text-3xl font-bold text-blue-900 text-center">
         Pengaturan Akun
       </h1>
 
@@ -10,7 +10,7 @@ export default function Settings() {
         Kelola preferensi keamanan dan aplikasi Anda di sini.
       </p>
 
-      <div className="grid grid-cols-2 gap-8 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mt-10">
 
         {/* PASSWORD */}
         <div className="bg-white p-6 rounded-xl border shadow-sm">
@@ -24,7 +24,7 @@ export default function Settings() {
             className="w-full border p-3 rounded-lg mb-4"
           />
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="password"
               placeholder="Kata sandi baru"

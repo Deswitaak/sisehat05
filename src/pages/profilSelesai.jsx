@@ -20,7 +20,7 @@ export default function ProfilSelesai() {
 
       <Navbar active="asesmen" />
 
-      <div className="px-16 py-10 flex-1">
+      <div className="px-4 md:px-8 lg:px-16 py-6 md:py-10 flex-1">
 
         <div className="grid grid-cols-3 gap-6">
 
@@ -35,7 +35,7 @@ export default function ProfilSelesai() {
                   SISTEM SIAP
                 </div>
 
-                <h1 className="text-3xl font-bold text-blue-900 mt-4">
+                <h1 className="text-2xl md:text-3xl font-bold text-blue-900 mt-4">
                   Profil Lengkap.
                 </h1>
 

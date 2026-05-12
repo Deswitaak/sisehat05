@@ -14,7 +14,7 @@ export default function Registrasi() {
     password: "",
   });
 
-  // ✅ HANDLE CHANGE (TIDAK UBAH UI)
+  //  HANDLE CHANGE (TIDAK UBAH UI)
   const handleChange = (key, value) => {
     setForm({
       ...form,
@@ -22,18 +22,31 @@ export default function Registrasi() {
     });
   };
 
-  // ✅ HANDLE REGISTER
-  const handleRegister = () => {
-    if (!form.email || !form.password) {
-      alert("Isi semua data!");
-      return;
-    }
+  // HANDLE REGISTER
+const handleRegister = () => {
 
-    localStorage.setItem("user", JSON.stringify(form));
+  if (!form.email || !form.password) {
+    alert("Isi semua data!");
+    return;
+  }
 
-    alert("Registrasi berhasil, silakan login");
-    navigate("/login");
-  };
+  localStorage.setItem(
+    "user",
+    JSON.stringify(form)
+  );
+
+  //  SIMPAN NAMA USER
+  localStorage.setItem(
+    "profileData",
+    JSON.stringify({
+      nama: form.name
+    })
+  );
+
+  alert("Registrasi berhasil, silakan login");
+
+  navigate("/login");
+};
 
   return (
     <div className="min-h-screen flex">
