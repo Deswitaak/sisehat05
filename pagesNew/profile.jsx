@@ -1,0 +1,388 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+
+import {
+  User,
+  Briefcase,
+  Calendar,
+  Users,
+} from "lucide-react";
+
+export default function Profil() {
+
+  const navigate = useNavigate();
+
+  // 🔥 ROLE
+  const [role, setRole] = useState("");
+
+  // 🔥 FORM
+  const [formData, setFormData] = useState({
+    namaUsaha: "",
+    jenisUsaha: "",
+    lamaUsaha: "",
+    usia: "",
+    gender: "Perempuan",
+  });
+
+  // 🔥 HANDLE INPUT
+  const handleChange = (e) => {
+
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // 🔥 SUBMIT
+  const handleSubmit = () => {
+
+    if (
+      !formData.namaUsaha ||
+      !formData.jenisUsaha ||
+      !formData.lamaUsaha ||
+      !formData.usia
+    ) {
+      alert("Semua field wajib diisi");
+      return;
+    }
+
+    if (!role) {
+      alert("Pilih posisi terlebih dahulu");
+      return;
+    }
+
+    // 🔥 SIMPAN STATUS
+    localStorage.setItem(
+      "profileComplete",
+      "true"
+    );
+
+    // 🔥 SIMPAN PROFILE
+const oldData = JSON.parse(
+  localStorage.getItem("profileData")
+);
+
+localStorage.setItem(
+  "profileData",
+  JSON.stringify({
+    ...oldData,
+    ...formData,
+    role,
+  })
+);
+
+    navigate("/profil-selesai");
+  };
+
+  return (
+    <div className="bg-[#f4f7fb] min-h-screen flex flex-col">
+
+      <Navbar active="profileSelesai" />
+
+      <div className="px-4 md:px-8 lg:px-16 py-6 md:py-10 flex-1">
+
+        {/* TITLE */}
+        <h1 className="text-2xl font-bold text-blue-900">
+          Lengkapi Profil Usaha
+        </h1>
+
+        <p className="text-gray-500 mt-2">
+          Informasi ini akan membantu kami
+          menyesuaikan analisis kesehatan usaha Anda.
+        </p>
+
+        {/* CARD */}
+        <div className="bg-white rounded-xl border mt-8 shadow-sm">
+
+          {/* HEADER */}
+          <div className="flex items-center gap-4 p-6 border-b">
+
+            <div className="bg-blue-100 p-3 rounded-lg">
+
+              <Briefcase
+                className="text-blue-900"
+                size={20}
+              />
+
+            </div>
+
+            <div>
+
+              <h2 className="font-semibold text-blue-900">
+                Detail Identitas Usaha
+              </h2>
+
+              <p className="text-sm text-gray-500">
+                Pastikan data yang dimasukkan
+                adalah data terbaru.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* FORM */}
+          <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* NAMA USAHA */}
+            <div>
+
+              <label className="text-sm font-medium">
+                Nama Usaha
+              </label>
+
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-gray-50">
+
+                <User
+                  size={16}
+                  className="text-gray-400"
+                />
+
+                <input
+                  type="text"
+                  name="namaUsaha"
+                  value={formData.namaUsaha}
+                  onChange={handleChange}
+                  className="w-full p-2 ml-2 outline-none bg-transparent"
+                  placeholder="Toko Anda"
+                />
+
+              </div>
+
+            </div>
+
+            {/* JENIS USAHA */}
+            <div>
+
+              <label className="text-sm font-medium">
+                Jenis Usaha
+              </label>
+
+              <input
+                type="text"
+                name="jenisUsaha"
+                value={formData.jenisUsaha}
+                onChange={handleChange}
+                className="w-full p-2 mt-1 border rounded-lg bg-gray-50"
+                placeholder="Retail / Jasa / dll"
+              />
+
+            </div>
+
+            {/* LAMA USAHA */}
+            <div>
+
+              <label className="text-sm font-medium">
+                Lama Usaha (Tahun)
+              </label>
+
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-gray-50">
+
+                <Calendar
+                  size={16}
+                  className="text-gray-400"
+                />
+
+                <input
+                  type="number"
+                  name="lamaUsaha"
+                  value={formData.lamaUsaha}
+                  onChange={handleChange}
+                  className="w-full p-2 ml-2 outline-none bg-transparent"
+                  placeholder="5"
+                />
+
+              </div>
+
+            </div>
+
+            {/* USIA */}
+            <div>
+
+              <label className="text-sm font-medium">
+                Usia
+              </label>
+
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-gray-50">
+
+                <Users
+                  size={16}
+                  className="text-gray-400"
+                />
+
+                <input
+                  type="number"
+                  name="usia"
+                  value={formData.usia}
+                  onChange={handleChange}
+                  className="w-full p-2 ml-2 outline-none bg-transparent"
+                  placeholder="30"
+                />
+
+              </div>
+
+            </div>
+
+            {/* ROLE */}
+            <div>
+
+              <label className="text-sm font-medium">
+                Posisi
+              </label>
+
+              <div className="flex gap-4 mt-3">
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setRole("Pemilik")
+                  }
+                  className={`px-5 py-2 rounded-lg border transition ${
+                    role === "Pemilik"
+                      ? "bg-blue-900 text-white border-blue-900"
+                      : "bg-white"
+                  }`}
+                >
+                  Pemilik
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setRole("Karyawan")
+                  }
+                  className={`px-5 py-2 rounded-lg border transition ${
+                    role === "Karyawan"
+                      ? "bg-green-600 text-white border-green-600"
+                      : "bg-white"
+                  }`}
+                >
+                  Karyawan
+                </button>
+
+              </div>
+
+              {/* INFO */}
+              <div className="mt-3">
+
+                {role === "Pemilik" && (
+
+                  <div className="bg-blue-50 text-blue-800 text-xs p-3 rounded-lg">
+
+                    Anda akan mengisi asesmen terkait:
+                    <b>
+                      {" "}
+                      operasional usaha,
+                      finansial,
+                      legalitas,
+                      dan performa bisnis.
+                    </b>
+
+                  </div>
+
+                )}
+
+                {role === "Karyawan" && (
+
+                  <div className="bg-green-50 text-green-800 text-xs p-3 rounded-lg">
+
+                    Anda akan mengisi asesmen terkait:
+                    <b>
+                      {" "}
+                      lingkungan kerja,
+                      kepemimpinan,
+                      dan kenyamanan kerja.
+                    </b>
+
+                  </div>
+
+                )}
+
+              </div>
+
+            </div>
+
+            {/* GENDER */}
+            <div>
+
+              <label className="text-sm font-medium">
+                Jenis Kelamin
+              </label>
+
+              <div className="flex gap-4 mt-2">
+
+                <label className="flex items-center gap-2">
+
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Perempuan"
+                    checked={
+                      formData.gender === "Perempuan"
+                    }
+                    onChange={handleChange}
+                  />
+
+                  Perempuan
+
+                </label>
+
+                <label className="flex items-center gap-2">
+
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="Laki-laki"
+                    checked={
+                      formData.gender === "Laki-laki"
+                    }
+                    onChange={handleChange}
+                  />
+
+                  Laki-laki
+
+                </label>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* FOOTER */}
+          <div className="flex justify-between items-center border-t p-6">
+
+            <p className="text-xs text-gray-400">
+              🔒 Data Anda tersimpan dengan aman.
+            </p>
+
+            <div className="flex items-center gap-4">
+
+              <button
+                onClick={() =>
+                  navigate("/beranda")
+                }
+                className="text-gray-500 hover:text-gray-700"
+              >
+                Batal
+              </button>
+
+              <button
+                onClick={handleSubmit}
+                className="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition"
+              >
+                Simpan & Lanjut
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
