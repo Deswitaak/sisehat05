@@ -6,33 +6,59 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ TAMBAHAN STATE (TIDAK NGARUH KE UI)
+  // State untuk menampung input form
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-  // ✅ HANDLE LOGIN
-  const handleLogin = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    if (!user) {
-      alert("Belum ada akun, silakan registrasi dulu");
+  // HANDLE LOGIN (Koneksi ke Back End PHP)
+  const handleLogin = async () => {
+    // Validasi input kosong
+    if (!form.email || !form.password) {
+      alert("Harap masukkan email dan password");
       return;
     }
 
-    if (form.email === user.email && form.password === user.password) {
-      localStorage.setItem("isLogin", "true");
-      navigate("/beranda");
-    } else {
-      alert("Email atau password salah");
+    try {
+      // Mengirim data login ke API login.php
+      const response = await fetch('http://localhost/sisehat-main/api-sisehat/login.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: form.email,
+          password: form.password
+        }),
+      });
+
+      // Mengambil respon JSON dari PHP
+      const result = await response.json();
+
+      if (result.status === "success") {
+        // Simpan status login dan data user ke localStorage
+        localStorage.setItem("isLogin", "true");
+        localStorage.setItem("user", JSON.stringify(result.user));
+        
+        // Simpan nama untuk keperluan profil di dashboard
+        localStorage.setItem("profileData", JSON.stringify({ nama: result.user.full_name }));
+
+        alert("Login Berhasil!");
+        navigate("/beranda"); // Pindah ke halaman beranda/dashboard
+      } else {
+        // Tampilkan pesan error dari PHP (Email/Password salah)
+        alert("Gagal Login: " + result.message);
+      }
+    } catch (error) {
+      console.error("Error koneksi login:", error);
+      alert("Tidak dapat terhubung ke server. Pastikan Apache & MySQL di XAMPP sudah menyala.");
     }
   };
 
   return (
     <div className="min-h-screen flex">
-
-      {/* LEFT */}
+      {/* LEFT SIDE - Branding */}
       <div className="w-1/2 bg-gradient-to-br from-blue-950 to-blue-700 text-white p-12 flex flex-col justify-between">
         <div>
           <h1 className="font-bold text-lg">SiSehat</h1>
@@ -55,17 +81,14 @@ export default function Login() {
         </p>
       </div>
 
-      {/* RIGHT */}
+      {/* RIGHT SIDE - Form */}
       <div className="w-1/2 bg-gray-50 p-12 flex items-center">
         <div className="max-w-md w-full mx-auto">
-
-          {/* TAB */}
+          {/* TAB NAVIGATION */}
           <div className="flex gap-6 border-b mb-6 text-sm font-medium">
-
             <span className="text-blue-900 border-b-2 border-blue-900 pb-2">
               Login
             </span>
-
             <Link
               to="/registrasi"
               className="text-gray-400 hover:text-blue-900 pb-2"
@@ -79,17 +102,18 @@ export default function Login() {
             Login to continue your journey.
           </p>
 
-          {/* FORM */}
+          {/* FORM INPUT */}
           <div className="mt-6 space-y-4">
-
             {/* EMAIL */}
             <div>
-              <label className="text-xs text-gray-500">EMAIL ADDRESS</label>
-              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white">
+              <label className="text-xs text-gray-500 font-semibold">EMAIL ADDRESS</label>
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white focus-within:ring-2 focus-within:ring-blue-900">
                 <Mail size={18} className="text-gray-400" />
                 <input
+                  type="email"
                   className="w-full p-2 ml-2 outline-none"
                   placeholder="name@company.com"
+                  value={form.email}
                   onChange={(e) =>
                     setForm({ ...form, email: e.target.value })
                   }
@@ -99,33 +123,35 @@ export default function Login() {
 
             {/* PASSWORD */}
             <div>
-              <label className="text-xs text-gray-500">PASSWORD</label>
-              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white">
+              <label className="text-xs text-gray-500 font-semibold">PASSWORD</label>
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white focus-within:ring-2 focus-within:ring-blue-900">
                 <Lock size={18} className="text-gray-400" />
-
                 <input
                   type={showPassword ? "text" : "password"}
                   className="w-full p-2 ml-2 outline-none"
                   placeholder="••••••••"
+                  value={form.password}
                   onChange={(e) =>
                     setForm({ ...form, password: e.target.value })
                   }
                 />
-
-                <button onClick={() => setShowPassword(!showPassword)}>
+                <button 
+                  type="button" 
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="text-gray-400 hover:text-blue-900"
+                >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>
 
-            {/* BUTTON (CUMA DITAMBAH onClick) */}
+            {/* LOGIN BUTTON */}
             <button
               onClick={handleLogin}
-              className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800"
+              className="w-full bg-blue-900 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition-colors shadow-lg active:transform active:scale-95"
             >
               Login
             </button>
-
           </div>
         </div>
       </div>

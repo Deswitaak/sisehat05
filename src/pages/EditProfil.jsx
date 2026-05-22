@@ -10,11 +10,6 @@ export default function EditProfil() {
     localStorage.getItem("profileData")
   );
 
-  // 🔥 FOTO
-  const [photo, setPhoto] = useState(
-    localStorage.getItem("profilePhoto") || ""
-  );
-
   // 🔥 FORM
   const [formData, setFormData] = useState({
 
@@ -26,6 +21,9 @@ export default function EditProfil() {
 
     jenisUsaha:
       savedData?.jenisUsaha || "",
+
+    kategori:
+      savedData?.kategori || "",
 
     lamaUsaha:
       savedData?.lamaUsaha || "",
@@ -48,28 +46,6 @@ export default function EditProfil() {
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };
-
-  // 🔥 HANDLE FOTO
-  const handlePhoto = (e) => {
-
-    const file = e.target.files[0];
-
-    if (!file) return;
-
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-
-      setPhoto(reader.result);
-
-      localStorage.setItem(
-        "profilePhoto",
-        reader.result
-      );
-    };
-
-    reader.readAsDataURL(file);
   };
 
   // 🔥 HANDLE ROLE
@@ -109,52 +85,6 @@ export default function EditProfil() {
 
       {/* CARD */}
       <div className="bg-white rounded-2xl border shadow-sm mt-8 p-8">
-
-        {/* FOTO */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-10">
-
-          {/* PREVIEW */}
-          {photo ? (
-
-            <img
-              src={photo}
-              alt="profile"
-              className="w-28 h-28 rounded-full object-cover border-4 border-blue-100"
-            />
-
-          ) : (
-
-            <div className="w-28 h-28 rounded-full bg-blue-900 text-white flex items-center justify-center text-2xl md:text-3xl font-bold">
-
-              {(formData.nama || "U")
-                .charAt(0)
-                .toUpperCase()}
-
-            </div>
-
-          )}
-
-          {/* UPLOAD */}
-          <div>
-
-            <h2 className="font-semibold text-blue-900">
-              Foto Profil
-            </h2>
-
-            <p className="text-sm text-gray-500 mt-1">
-              Upload foto profile akun Anda.
-            </p>
-
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handlePhoto}
-              className="mt-4"
-            />
-
-          </div>
-
-        </div>
 
         {/* FORM */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -210,6 +140,48 @@ export default function EditProfil() {
 
           </div>
 
+          {/* KATEGORI */}
+          <div>
+
+            <label className="text-sm font-medium">
+              Kategori Usaha
+            </label>
+
+            <select
+              name="kategori"
+              value={formData.kategori}
+              onChange={handleChange}
+              className="w-full mt-1 p-3 border rounded-xl bg-gray-50"
+            >
+
+              <option value="">
+                Pilih Kategori
+              </option>
+
+              <option value="Kuliner">
+                Kuliner
+              </option>
+
+              <option value="Fashion">
+                Fashion
+              </option>
+
+              <option value="Retail">
+                Retail
+              </option>
+
+              <option value="Jasa">
+                Jasa
+              </option>
+
+              <option value="Teknologi">
+                Teknologi
+              </option>
+
+            </select>
+
+          </div>
+
           {/* LAMA */}
           <div>
 
@@ -241,6 +213,32 @@ export default function EditProfil() {
               onChange={handleChange}
               className="w-full mt-1 p-3 border rounded-xl bg-gray-50"
             />
+
+          </div>
+
+          {/* GENDER */}
+          <div>
+
+            <label className="text-sm font-medium">
+              Gender
+            </label>
+
+            <select
+              name="gender"
+              value={formData.gender}
+              onChange={handleChange}
+              className="w-full mt-1 p-3 border rounded-xl bg-gray-50"
+            >
+
+              <option value="Perempuan">
+                Perempuan
+              </option>
+
+              <option value="Laki-laki">
+                Laki-laki
+              </option>
+
+            </select>
 
           </div>
 

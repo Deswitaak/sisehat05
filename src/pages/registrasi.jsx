@@ -6,7 +6,7 @@ export default function Registrasi() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ TAMBAHAN STATE
+  // State untuk menampung input user
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -14,7 +14,7 @@ export default function Registrasi() {
     password: "",
   });
 
-  //  HANDLE CHANGE (TIDAK UBAH UI)
+  // Handle perubahan input
   const handleChange = (key, value) => {
     setForm({
       ...form,
@@ -22,36 +22,52 @@ export default function Registrasi() {
     });
   };
 
-  // HANDLE REGISTER
-const handleRegister = () => {
+  // HANDLE REGISTER (Koneksi ke Back End PHP)
+  const handleRegister = async () => {
+    // Validasi sederhana di sisi client
+    if (!form.name || !form.email || !form.phone || !form.password) {
+      alert("Harap isi semua kolom data!");
+      return;
+    }
 
-  if (!form.email || !form.password) {
-    alert("Isi semua data!");
-    return;
-  }
+    try {
+      // Mengirim data ke API register.php
+      const response = await fetch('http://localhost/sisehat-main/api-sisehat/register.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          full_name: form.name,
+          email: form.email,
+          whatsapp_number: form.phone,
+          password: form.password
+        }),
+      });
 
-  localStorage.setItem(
-    "user",
-    JSON.stringify(form)
-  );
+      // Mengambil respon dari server
+      const result = await response.json();
 
-  //  SIMPAN NAMA USER
-  localStorage.setItem(
-    "profileData",
-    JSON.stringify({
-      nama: form.name
-    })
-  );
+      if (result.status === "success") {
+        // Simpan ke localStorage sebagai data cadangan (opsional)
+        localStorage.setItem("user", JSON.stringify(form));
+        localStorage.setItem("profileData", JSON.stringify({ nama: form.name }));
 
-  alert("Registrasi berhasil, silakan login");
-
-  navigate("/login");
-};
+        alert("Registrasi berhasil! Silakan login.");
+        navigate("/login");
+      } else {
+        // Jika gagal karena email sudah terdaftar atau masalah database lainnya
+        alert("Gagal Registrasi: " + result.message);
+      }
+    } catch (error) {
+      console.error("Error koneksi ke API:", error);
+      alert("Tidak dapat terhubung ke server. Pastikan XAMPP (Apache & MySQL) sudah aktif.");
+    }
+  };
 
   return (
     <div className="min-h-screen flex">
-
-      {/* LEFT */}
+      {/* LEFT SIDE - Branding */}
       <div className="w-1/2 bg-gradient-to-br from-blue-950 to-blue-700 text-white p-12 flex flex-col justify-between">
         <div>
           <h1 className="font-bold text-lg">SiSehat</h1>
@@ -75,15 +91,14 @@ const handleRegister = () => {
         </p>
       </div>
 
-      {/* RIGHT */}
+      {/* RIGHT SIDE - Form */}
       <div className="w-1/2 bg-gray-50 p-12 flex items-center">
         <div className="max-w-md w-full mx-auto">
-
+          {/* Tab Navigation */}
           <div className="flex gap-6 border-b mb-6 text-sm font-medium">
             <Link to="/login" className="text-gray-400 hover:text-blue-900 pb-2">
               Login
             </Link>
-
             <span className="text-blue-900 border-b-2 border-blue-900 pb-2">
               Registration
             </span>
@@ -95,15 +110,15 @@ const handleRegister = () => {
           </p>
 
           <div className="mt-6 space-y-4">
-
             {/* FULL NAME */}
             <div>
-              <label className="text-xs text-gray-500">FULL NAME</label>
-              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white">
+              <label className="text-xs text-gray-500 font-semibold">FULL NAME</label>
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white focus-within:ring-2 focus-within:ring-blue-900">
                 <User size={18} className="text-gray-400" />
                 <input
                   className="w-full p-2 ml-2 outline-none"
                   placeholder="John Doe"
+                  value={form.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                 />
               </div>
@@ -111,12 +126,14 @@ const handleRegister = () => {
 
             {/* EMAIL */}
             <div>
-              <label className="text-xs text-gray-500">EMAIL ADDRESS</label>
-              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white">
+              <label className="text-xs text-gray-500 font-semibold">EMAIL ADDRESS</label>
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white focus-within:ring-2 focus-within:ring-blue-900">
                 <Mail size={18} className="text-gray-400" />
                 <input
+                  type="email"
                   className="w-full p-2 ml-2 outline-none"
                   placeholder="name@company.com"
+                  value={form.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                 />
               </div>
@@ -124,12 +141,13 @@ const handleRegister = () => {
 
             {/* PHONE */}
             <div>
-              <label className="text-xs text-gray-500">WHATSAPP NUMBER</label>
-              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white">
+              <label className="text-xs text-gray-500 font-semibold">WHATSAPP NUMBER</label>
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white focus-within:ring-2 focus-within:ring-blue-900">
                 <Phone size={18} className="text-gray-400" />
                 <input
                   className="w-full p-2 ml-2 outline-none"
                   placeholder="+62 812 3456 7890"
+                  value={form.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                 />
               </div>
@@ -137,36 +155,39 @@ const handleRegister = () => {
 
             {/* PASSWORD */}
             <div>
-              <label className="text-xs text-gray-500">PASSWORD</label>
-              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white">
+              <label className="text-xs text-gray-500 font-semibold">PASSWORD</label>
+              <div className="flex items-center border rounded-lg px-3 mt-1 bg-white focus-within:ring-2 focus-within:ring-blue-900">
                 <Lock size={18} className="text-gray-400" />
-
                 <input
                   type={showPassword ? "text" : "password"}
                   className="w-full p-2 ml-2 outline-none"
                   placeholder="••••••••"
+                  value={form.password}
                   onChange={(e) => handleChange("password", e.target.value)}
                 />
-
-                <button onClick={() => setShowPassword(!showPassword)}>
+                <button 
+                  type="button" 
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="text-gray-400 hover:text-blue-900"
+                >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>
 
+            {/* Terms & Conditions */}
             <div className="flex items-center gap-2 text-sm text-gray-600">
-              <input type="checkbox" />
+              <input type="checkbox" className="rounded border-gray-300" required />
               <span>I agree to Terms & Privacy Policy</span>
             </div>
 
-            {/* ✅ HANYA TAMBAH onClick */}
+            {/* Submit Button */}
             <button
               onClick={handleRegister}
-              className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800"
+              className="w-full bg-blue-900 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition-colors shadow-lg active:transform active:scale-95"
             >
               Create Account
             </button>
-
           </div>
         </div>
       </div>

@@ -27,10 +27,6 @@ export default function NavbarDashboard() {
     localStorage.getItem("profileData")
   );
 
-  // 🔥 FOTO PROFILE
-const profilePhoto =
-  localStorage.getItem("profilePhoto");
-
   // 🔥 USER REGISTER
   const userData = JSON.parse(
     localStorage.getItem("user")
@@ -74,9 +70,12 @@ const profilePhoto =
       <nav className="flex justify-between items-center px-12 py-5 bg-white shadow-sm relative">
 
         {/* LOGO */}
-        <h1 className="font-bold text-lg text-blue-900">
-          SiSehat
-        </h1>
+        <h1
+  onClick={() => navigate("/beranda")}
+  className="font-bold text-lg text-blue-900 cursor-pointer"
+>
+  SiSehat
+</h1>
 
         {/* MENU */}
         <div className="flex gap-4 md:gap-8 text-sm">
@@ -118,44 +117,32 @@ const profilePhoto =
           </button>
 
           {/* USER */}
-<div
-  onClick={() => navigate("/profil")}
-  className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full cursor-pointer hover:bg-gray-200 transition"
->
+          <div
+            onClick={() => navigate("/profil")}
+            className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full cursor-pointer hover:bg-gray-200 transition"
+          >
 
-  {/* NAMA */}
-  <span className="text-sm font-medium">
+            {/* NAMA */}
+            <span className="text-sm font-medium">
 
-    {profileData?.nama ||
-      userData?.name ||
-      "Pengguna"}
+              {profileData?.nama ||
+                userData?.name ||
+                "Pengguna"}
 
-  </span>
+            </span>
 
-  {/* FOTO */}
-  {localStorage.getItem("profilePhoto") ? (
+            {/* FOTO JADI HURUF */}
+            <div className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center text-xs font-semibold">
 
-    <img
-      src={localStorage.getItem("profilePhoto")}
-      alt="profile"
-      className="w-8 h-8 rounded-full object-cover"
-    />
+              {(profileData?.nama ||
+                userData?.name ||
+                "U")
+                .charAt(0)
+                .toUpperCase()}
 
-  ) : (
+            </div>
 
-    <div className="w-8 h-8 rounded-full bg-blue-900 text-white flex items-center justify-center text-xs font-semibold">
-
-      {(profileData?.nama ||
-        userData?.name ||
-        "U")
-        .charAt(0)
-        .toUpperCase()}
-
-    </div>
-
-  )}
-
-</div>
+          </div>
 
           {/* DROPDOWN */}
           {open && (

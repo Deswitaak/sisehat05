@@ -62,27 +62,20 @@ export default function DetailUMKM() {
   // 🔥 RADAR
   const radarData = {
 
-    labels: [
-      "OV",
-      "LI",
-      "IR",
-      "OS",
-      "QW",
-      "EP",
-    ],
+    labels:
+      data.factors?.map(
+        (f) => f.name
+      ) || [],
 
     datasets: [
       {
-        label: data.nama,
+        label:
+          data.nama_usaha,
 
-        data: [
-          data.ov,
-          data.li,
-          data.ir,
-          data.os,
-          data.qw,
-          data.ep,
-        ],
+        data:
+          data.factors?.map(
+            (f) => f.score / 20
+          ) || [],
 
         backgroundColor:
           "rgba(37,99,235,0.2)",
@@ -111,59 +104,44 @@ export default function DetailUMKM() {
   // 🔥 STATUS
   const getStatus = (value) => {
 
-    if (value >= 4)
+    if (value >= 85)
       return {
-        label: "Sangat Baik",
+        label: "Optimal",
         color:
           "bg-green-100 text-green-700",
       };
 
-    if (value >= 3)
+    if (value >= 70)
       return {
-        label: "Baik",
+        label: "Stabil",
         color:
           "bg-blue-100 text-blue-700",
       };
 
     return {
-      label: "Perlu Perbaikan",
+      label: "Perlu Perhatian",
       color:
         "bg-red-100 text-red-600",
     };
   };
 
-  const faktorData = [
+  // 🔥 FAKTOR
+  const faktorData =
+    data.factors || [];
 
-    {
-      name: "Organizational Values",
-      value: data.ov,
-    },
+  // 🔥 SORT
+  const sorted =
+    [...faktorData].sort(
+      (a, b) => b.score - a.score
+    );
 
-    {
-      name: "Leader Involvement",
-      value: data.li,
-    },
+  const highest =
+    sorted[0];
 
-    {
-      name: "Institutional Resources",
-      value: data.ir,
-    },
-
-    {
-      name: "Operational Stability",
-      value: data.os,
-    },
-
-    {
-      name: "Workplace Quality",
-      value: data.qw,
-    },
-
-    {
-      name: "Economic Performance",
-      value: data.ep,
-    },
-  ];
+  const lowest =
+    sorted[
+      sorted.length - 1
+    ];
 
   return (
     <div className="bg-[#f4f7fb] min-h-screen">
@@ -183,37 +161,69 @@ export default function DetailUMKM() {
         {/* HEADER */}
         <div className="bg-white rounded-2xl p-8 shadow-sm border">
 
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-start flex-wrap gap-6">
 
             <div>
 
               <h1 className="text-2xl md:text-3xl font-bold text-blue-900">
-                {data.nama}
+
+                {data.nama_usaha}
+
               </h1>
 
               <p className="text-gray-500 mt-2">
                 Detail kesehatan organisasi UMKM
-                berdasarkan hasil asesmen statistik.
+                berdasarkan hasil asesmen terakhir.
               </p>
+
+              {/* INFO */}
+              <div className="flex flex-wrap gap-3 mt-5">
+
+                <span className="bg-gray-100 px-4 py-2 rounded-full text-sm">
+
+                  {data.kategori}
+
+                </span>
+
+                <span className="bg-gray-100 px-4 py-2 rounded-full text-sm">
+
+                  {data.jenis_usaha}
+
+                </span>
+
+                <span className="bg-gray-100 px-4 py-2 rounded-full text-sm">
+
+                  {data.role}
+
+                </span>
+
+                <span className="bg-gray-100 px-4 py-2 rounded-full text-sm">
+
+                  {data.lama_usaha} Tahun
+
+                </span>
+
+              </div>
 
             </div>
 
-            <div className={`px-4 py-2 rounded-full text-sm font-semibold ${
-              data.skor >= 110
+            {/* STATUS */}
+            <div className={`px-5 py-3 rounded-full text-sm font-semibold ${
+              data.total_score >= 85
                 ? "bg-green-100 text-green-700"
-                : data.skor >= 90
+                : data.total_score >= 70
                 ? "bg-blue-100 text-blue-700"
                 : "bg-red-100 text-red-600"
             }`}>
 
-              {data.jenis}
+              {data.status}
 
             </div>
 
           </div>
 
           {/* SCORE */}
-          <div className="grid grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
 
             <div className="bg-[#f4f7fb] p-5 rounded-xl">
 
@@ -221,8 +231,10 @@ export default function DetailUMKM() {
                 Total Score
               </p>
 
-              <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mt-2">
-                {data.skor}
+              <h2 className="text-3xl font-bold text-blue-900 mt-2">
+
+                {data.total_score}
+
               </h2>
 
             </div>
@@ -230,11 +242,13 @@ export default function DetailUMKM() {
             <div className="bg-[#f4f7fb] p-5 rounded-xl">
 
               <p className="text-sm text-gray-400">
-                Status UMKM
+                Faktor Tertinggi
               </p>
 
               <h2 className="text-xl font-bold text-blue-900 mt-2">
-                {data.jenis}
+
+                {highest?.name}
+
               </h2>
 
             </div>
@@ -242,11 +256,13 @@ export default function DetailUMKM() {
             <div className="bg-[#f4f7fb] p-5 rounded-xl">
 
               <p className="text-sm text-gray-400">
-                ID Responden
+                Faktor Terendah
               </p>
 
-              <h2 className="text-2xl font-bold text-blue-900 mt-2">
-                #{data.id}
+              <h2 className="text-xl font-bold text-red-500 mt-2">
+
+                {lowest?.name}
+
               </h2>
 
             </div>
@@ -262,17 +278,21 @@ export default function DetailUMKM() {
 
             </h2>
 
-            <Radar
-              data={radarData}
-              options={options}
-            />
+            <div className="max-w-[650px] mx-auto">
+
+              <Radar
+                data={radarData}
+                options={options}
+              />
+
+            </div>
 
           </div>
 
         </div>
 
         {/* CARD FAKTOR */}
-        <div className="grid grid-cols-3 gap-6 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
 
           {faktorData.map((item, i) => (
 
@@ -287,19 +307,19 @@ export default function DetailUMKM() {
 
               </p>
 
-              <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mt-3">
+              <h2 className="text-3xl font-bold text-blue-900 mt-3">
 
-                {item.value.toFixed(1)}
+                {item.score}
 
               </h2>
 
               <div className="mt-4">
 
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  getStatus(item.value).color
+                  getStatus(item.score).color
                 }`}>
 
-                  {getStatus(item.value).label}
+                  {getStatus(item.score).label}
 
                 </span>
 
@@ -335,7 +355,7 @@ export default function DetailUMKM() {
                 </th>
 
                 <th>
-                  Nilai
+                  Score
                 </th>
 
                 <th>
@@ -355,7 +375,7 @@ export default function DetailUMKM() {
               {faktorData.map((item, i) => {
 
                 const status =
-                  getStatus(item.value);
+                  getStatus(item.score);
 
                 return (
 
@@ -364,15 +384,15 @@ export default function DetailUMKM() {
                     className="border-t text-center"
                   >
 
-                    <td className="p-4 text-left">
+                    <td className="p-4 text-left font-medium">
 
                       {item.name}
 
                     </td>
 
-                    <td className="font-semibold">
+                    <td className="font-semibold text-blue-900">
 
-                      {item.value.toFixed(1)}
+                      {item.score}
 
                     </td>
 
@@ -388,9 +408,9 @@ export default function DetailUMKM() {
 
                     <td className="text-gray-500">
 
-                      {item.value >= 4
+                      {item.score >= 85
                         ? "Performa sangat optimal"
-                        : item.value >= 3
+                        : item.score >= 70
                         ? "Performa cukup baik"
                         : "Membutuhkan peningkatan"}
 
