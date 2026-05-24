@@ -1,7 +1,10 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+/** @var \mysqli $conn */
 include 'config.php';
 
-// Pastikan parameter id_user dikirim oleh frontend
 if (!isset($_GET['id_user'])) {
     header('HTTP/1.1 400 Bad Request');
     echo json_encode(["status" => "error", "message" => "Parameter id_user tidak ditemukan"]);
@@ -10,7 +13,6 @@ if (!isset($_GET['id_user'])) {
 
 $id_user = intval($_GET['id_user']);
 
-// Query mengambil semua riwayat asesmen user diurutkan dari yang paling baru
 $query = "SELECT total_score, status, ov_score, li_score, ir_score, ep_score, os_score, qw_score, tanggal_asesmen 
           FROM asesmen 
           WHERE id_user = $id_user 
@@ -24,7 +26,7 @@ if ($result) {
         $history[] = [
             "total_score" => floatval($row['total_score']),
             "status" => $row['status'],
-            "tanggal_asesmen" => $row['tanggal_asesmen'], // Mengembalikan format YYYY-MM-DD HH:MM:SS
+            "tanggal_asesmen" => $row['tanggal_asesmen'],
             "factors" => [
                 ["name" => "OV", "score" => floatval($row['ov_score'])],
                 ["name" => "LI", "score" => floatval($row['li_score'])],
@@ -35,7 +37,6 @@ if ($result) {
             ]
         ];
     }
-    header('Content-Type: application/json; charset=UTF-8');
     echo json_encode($history);
 } else {
     echo json_encode(["status" => "error", "message" => mysqli_error($conn)]);

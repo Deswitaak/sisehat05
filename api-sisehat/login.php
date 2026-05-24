@@ -1,35 +1,32 @@
 <?php
-// 1. Header CORS wajib di paling atas agar React bisa akses
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Content-Type: application/json; charset=UTF-8");
 
-// Tangani Preflight Request dari browser
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
-}
-
-/** @var mysqli $conn */
+/** @var \mysqli $conn */
 include 'config.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if ($data) {
-    $email = $data['email'];
+if (isset($data['username']) && isset($data['password'])) {
+    $username = mysqli_real_escape_string($conn, $data['username']);
     $password = $data['password'];
 
-    $query = "SELECT * FROM users WHERE email = '$email'";
-    $result = mysqli_query($conn, $query);
-    $user = mysqli_fetch_assoc($result);
-
-    if ($user && password_verify($password, $user['password'])) {
-        // Login sukses, kirim data user (kecuali password) ke Frontend
-        unset($user['password']);
-        echo json_encode(["status" => "success", "user" => $user]);
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
+    if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row['password'])) {
+            echo json_encode([
+                "status" => "success",
+                "message" => "Login berhasil",
+                "id_user" => intval($row['id_user']),
+                "username" => $row['username']
+            ]);
+        } else {
+            echo json_encode(["status" => "error", "message" => "Password salah"]);
+        }
     } else {
-        echo json_encode(["status" => "error", "message" => "Email atau password salah"]);
+        echo json_encode(["status" => "error", "message" => "Username tidak ditemukan"]);
     }
 } else {
-    echo json_encode(["status" => "error", "message" => "Data input kosong"]);
+    echo json_encode(["status" => "error", "message" => "Input data tidak lengkap"]);
 }

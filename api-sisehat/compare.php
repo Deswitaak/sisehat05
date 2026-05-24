@@ -1,10 +1,12 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+/** @var \mysqli $conn */
 include 'config.php';
 
-// Menangkap parameter kategori usaha dari frontend (default ke 'Kuliner' jika kosong)
 $kategori = isset($_GET['kategori']) ? mysqli_real_escape_string($conn, $_GET['kategori']) : 'Kuliner';
 
-// Query agregasi SQL untuk menghitung rata-rata (AVG) skor industri
 $query = "SELECT 
             AVG(a.total_score) AS avg_total,
             AVG(a.ov_score) AS avg_ov,
@@ -22,7 +24,6 @@ $result = mysqli_query($conn, $query);
 if ($result) {
     $row = mysqli_fetch_assoc($result);
 
-    // Jika data kategori tersebut belum ada di DB, set default ke nilai 0 agar tidak null
     $response = [
         "kategori" => $kategori,
         "avg_total_score" => round(floatval($row['avg_total']), 2),
@@ -36,7 +37,6 @@ if ($result) {
         ]
     ];
 
-    header('Content-Type: application/json; charset=UTF-8');
     echo json_encode($response);
 } else {
     echo json_encode(["status" => "error", "message" => mysqli_error($conn)]);

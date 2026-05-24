@@ -1,11 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET");
 header("Content-Type: application/json; charset=UTF-8");
 
+/** @var \mysqli $conn */
 include 'config.php';
 
-// SQL Query mengambil profil usaha dan JOIN dengan data asesmen paling terakhir (latest)
 $query = "SELECT u.id_user AS id, u.nama_usaha, u.kategori, u.jenis_usaha, u.lama_usaha, u.role, 
                  a.total_score, a.status, a.ov_score, a.li_score, a.ir_score, a.ep_score, a.os_score, a.qw_score
           FROM usaha u
