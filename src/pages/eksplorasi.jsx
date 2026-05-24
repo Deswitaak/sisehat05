@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavbarDashboard from "../components/NavbarDashboard";
-import { useEffect } from "react";
+import rawData from "../data/raw_data.json";
 
 export default function Eksplorasi() {
 
@@ -9,131 +9,80 @@ export default function Eksplorasi() {
 
   const [search, setSearch] = useState("");
 
-  const [data, setData] = useState([]);
+  // 🔥 FORMAT DATA ASLI
+  const data = rawData.map((item) => ({
 
-  // 🔥 SIMULASI DATA API
-  useEffect(() => {
+    id: item.ID,
 
-    // 🔥 NANTI DIGANTI BACKEND
-    const dummyResponse = [
+    nama: `UMKM ${item.ID}`,
 
-      {
-        id: 1,
+    jenis:
+      item.TOTAL >= 110
+        ? "Sangat Sehat"
+        : item.TOTAL >= 90
+        ? "Sehat"
+        : "Perlu Perhatian",
 
-        nama_usaha: "Paradose",
+    skor: item.TOTAL,
 
-        kategori: "Kuliner",
+    ov:
+      (
+        item.OH1 +
+        item.OH2 +
+        item.OH3 +
+        item.OH4 +
+        item.OH5
+      ) / 5,
 
-        jenis_usaha: "Coffee Shop",
+    li:
+      (
+        item.OH6 +
+        item.OH7 +
+        item.OH8 +
+        item.OH9 +
+        item.OH10
+      ) / 5,
 
-        lama_usaha: 5,
+    ir:
+      (
+        item.OH11 +
+        item.OH12 +
+        item.OH13 +
+        item.OH14 +
+        item.OH15
+      ) / 5,
 
-        role: "Pemilik",
+    os:
+      (
+        item.OH16 +
+        item.OH17 +
+        item.OH18 +
+        item.OH19 +
+        item.OH20
+      ) / 5,
 
-        total_score: 88,
+    qw:
+      (
+        item.OH21 +
+        item.OH22 +
+        item.OH23 +
+        item.OH24 +
+        item.OH25
+      ) / 5,
 
-        status: "Sehat",
-
-        created_at: "2026-05-23",
-
-        factors: [
-
-          {
-            name: "OV",
-            score: 92,
-          },
-
-          {
-            name: "LI",
-            score: 80,
-          },
-
-          {
-            name: "IR",
-            score: 76,
-          },
-
-          {
-            name: "OS",
-            score: 85,
-          },
-
-          {
-            name: "QW",
-            score: 88,
-          },
-
-          {
-            name: "EP",
-            score: 90,
-          },
-
-        ],
-      },
-
-      {
-        id: 2,
-
-        nama_usaha: "Batik Harmoni",
-
-        kategori: "Fashion",
-
-        jenis_usaha: "Fashion",
-
-        lama_usaha: 3,
-
-        role: "Karyawan",
-
-        total_score: 74,
-
-        status: "Stabil",
-
-        created_at: "2026-05-21",
-
-        factors: [
-
-          {
-            name: "OV",
-            score: 70,
-          },
-
-          {
-            name: "LI",
-            score: 72,
-          },
-
-          {
-            name: "IR",
-            score: 68,
-          },
-
-          {
-            name: "OS",
-            score: 80,
-          },
-
-          {
-            name: "QW",
-            score: 76,
-          },
-
-          {
-            name: "EP",
-            score: 78,
-          },
-
-        ],
-      },
-
-    ];
-
-    setData(dummyResponse);
-
-  }, []);
+    ep:
+      (
+        item.OH26 +
+        item.OH27 +
+        item.OH28 +
+        item.OH29 +
+        item.OH30
+      ) / 5,
+  }));
 
   // 🔥 FILTER
   const filtered = data.filter((item) =>
-    item.nama_usaha
+    item.nama
       .toLowerCase()
       .includes(search.toLowerCase())
   );
@@ -152,7 +101,7 @@ export default function Eksplorasi() {
 
         <p className="text-gray-500 mt-2">
           Analisis kesehatan organisasi
-          berdasarkan data responden UMKM.
+          berdasarkan data 428 responden.
         </p>
 
         {/* SEARCH */}
@@ -173,108 +122,115 @@ export default function Eksplorasi() {
         {/* GRID */}
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden mt-8">
 
-          {/* HEADER */}
-          <div className="grid grid-cols-6 bg-blue-900 text-white text-sm font-semibold px-6 py-4">
+  {/* HEADER */}
+  <div className="grid grid-cols-6 bg-blue-900 text-white text-sm font-semibold px-6 py-4">
 
-            <div>ID</div>
-            <div>Nama UMKM</div>
-            <div>Status</div>
-            <div>Score</div>
-            <div>Faktor Tertinggi</div>
-            <div className="text-center">Aksi</div>
+    <div>ID</div>
+    <div>Nama UMKM</div>
+    <div>Status</div>
+    <div>Score</div>
+    <div>Faktor Tertinggi</div>
+    <div className="text-center">Aksi</div>
 
-          </div>
+  </div>
 
-          {/* DATA */}
-          {filtered.map((item, index) => {
+  {/* DATA */}
+  {filtered.map((item, index) => {
 
-            const highest =
-              item.factors?.sort(
-                (a, b) => b.score - a.score
-              )[0];
+    const highest = Math.max(
+      item.ov,
+      item.li,
+      item.ir,
+      item.os,
+      item.qw,
+      item.ep
+    );
 
-            return (
+    return (
 
-              <div
-                key={item.id}
-                className="grid grid-cols-6 px-6 py-5 border-b items-center text-sm hover:bg-gray-50 transition"
-              >
+      <div
+        key={item.id}
+        className="grid grid-cols-6 px-6 py-5 border-b items-center text-sm hover:bg-gray-50 transition"
+      >
 
-                <div className="font-semibold">
-                  #{item.id}
-                </div>
+        <div className="font-semibold">
+          #{item.id}
+        </div>
 
-                <div>
+        <div>
 
-                  <p className="font-semibold text-blue-900">
-                    {item.nama_usaha}
-                  </p>
+          <p className="font-semibold text-blue-900">
+            {item.nama}
+          </p>
 
-                  <p className="text-xs text-gray-400 mt-1">
-
-                    {item.kategori} • {item.role}
-
-                  </p>
-
-                </div>
-
-                <div>
-
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                    item.total_score >= 85
-                      ? "bg-green-100 text-green-700"
-                      : item.total_score >= 70
-                      ? "bg-blue-100 text-blue-700"
-                      : "bg-red-100 text-red-600"
-                  }`}>
-
-                    {item.status}
-
-                  </span>
-
-                </div>
-
-                <div className="font-bold text-blue-900">
-                  {item.total_score}
-                </div>
-
-                <div>
-
-                  {highest?.name}
-
-                </div>
-
-                <div className="flex gap-3 justify-center">
-
-                  <button
-                    onClick={() =>
-                      navigate("/detailumkm", {
-                        state: item,
-                      })
-                    }
-                    className="bg-blue-900 text-white px-4 py-2 rounded-lg text-xs"
-                  >
-                    Detail
-                  </button>
-
-                  <button
-                    onClick={() =>
-                      navigate("/perbandingan", {
-                        state: item,
-                      })
-                    }
-                    className="border border-blue-900 text-blue-900 px-4 py-2 rounded-lg text-xs"
-                  >
-                    Bandingkan
-                  </button>
-
-                </div>
-
-              </div>
-            );
-          })}
+          <p className="text-xs text-gray-400 mt-1">
+            Data responden UMKM
+          </p>
 
         </div>
+
+        <div>
+
+          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+            item.skor >= 110
+              ? "bg-green-100 text-green-700"
+              : item.skor >= 90
+              ? "bg-blue-100 text-blue-700"
+              : "bg-red-100 text-red-600"
+          }`}>
+
+            {item.jenis}
+
+          </span>
+
+        </div>
+
+        <div className="font-bold text-blue-900">
+          {item.skor}
+        </div>
+
+        <div>
+
+          {highest === item.ov && "OV"}
+          {highest === item.li && "LI"}
+          {highest === item.ir && "IR"}
+          {highest === item.os && "OS"}
+          {highest === item.qw && "QW"}
+          {highest === item.ep && "EP"}
+
+        </div>
+
+        <div className="flex gap-3 justify-center">
+
+          <button
+            onClick={() =>
+              navigate("/detailumkm", {
+                state: item,
+              })
+            }
+            className="bg-blue-900 text-white px-4 py-2 rounded-lg text-xs"
+          >
+            Detail
+          </button>
+
+          <button
+            onClick={() =>
+              navigate("/perbandingan", {
+                state: item,
+              })
+            }
+            className="border border-blue-900 text-blue-900 px-4 py-2 rounded-lg text-xs"
+          >
+            Bandingkan
+          </button>
+
+        </div>
+
+      </div>
+    );
+  })}
+
+</div>
 
       </div>
 

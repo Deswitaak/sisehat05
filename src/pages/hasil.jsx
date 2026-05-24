@@ -2,7 +2,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import NavbarDashboard from "../components/NavbarDashboard";
 import { useEffect } from "react";
-import jsPDF from "jspdf";
 
 import {
   Chart as ChartJS,
@@ -79,57 +78,6 @@ export default function Hasil() {
     if (score >= 70) return "STABIL";
     return "PERLU PERHATIAN";
   };
-
-  const downloadPDF = () => {
-
-  const doc = new jsPDF();
-
-  doc.setFontSize(20);
-
-  doc.text(
-    "Laporan Hasil Asesmen UMKM",
-    20,
-    20
-  );
-
-  doc.setFontSize(12);
-
-  doc.text(
-    `Total Score: ${total}/100`,
-    20,
-    40
-  );
-
-  doc.text(
-    `Status: ${getStatus(total)}`,
-    20,
-    50
-  );
-
-  let y = 70;
-
-  doc.text(
-    "Rincian Faktor:",
-    20,
-    y
-  );
-
-  y += 10;
-
-  data.forEach((item) => {
-
-    doc.text(
-      `${item.name}: ${item.score}`,
-      25,
-      y
-    );
-
-    y += 10;
-
-  });
-
-  doc.save("hasil-asesmen-umkm.pdf");
-};
 
   return (
     <div className="bg-[#f4f7fb] min-h-screen">

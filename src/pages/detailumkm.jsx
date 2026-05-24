@@ -1,428 +1,318 @@
-import {
-  useLocation,
-  useNavigate
-} from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import NavbarDashboard from "../components/NavbarDashboard";
+export default function EditProfil() {
 
-import {
-  Radar
-} from "react-chartjs-2";
-
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend,
-} from "chart.js";
-
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
-);
-
-export default function DetailUMKM() {
-
-  const location = useLocation();
   const navigate = useNavigate();
 
-  const data = location.state;
+  // 🔥 AMBIL DATA
+  const savedData = JSON.parse(
+    localStorage.getItem("profileData")
+  );
 
-  // 🔥 FALLBACK
-  if (!data) {
-    return (
-      <div className="bg-[#f4f7fb] min-h-screen flex items-center justify-center">
+  // 🔥 FOTO
+  const [photo, setPhoto] = useState(
+    localStorage.getItem("profilePhoto") || ""
+  );
 
-        <div className="bg-white p-10 rounded-2xl shadow text-center">
+  // 🔥 FORM
+  const [formData, setFormData] = useState({
 
-          <h1 className="text-2xl font-bold text-blue-900">
-            Data UMKM Tidak Ditemukan
-          </h1>
+    nama:
+      savedData?.nama || "",
 
-          <button
-            onClick={() => navigate("/eksplorasi")}
-            className="mt-6 bg-blue-900 text-white px-5 py-2 rounded-xl"
-          >
-            Kembali ke Eksplorasi
-          </button>
+    namaUsaha:
+      savedData?.namaUsaha || "",
 
-        </div>
+    jenisUsaha:
+      savedData?.jenisUsaha || "",
 
-      </div>
-    );
-  }
+    lamaUsaha:
+      savedData?.lamaUsaha || "",
 
-  // 🔥 RADAR
-  const radarData = {
+    usia:
+      savedData?.usia || "",
 
-    labels:
-      data.factors?.map(
-        (f) => f.name
-      ) || [],
+    gender:
+      savedData?.gender || "Perempuan",
 
-    datasets: [
-      {
-        label:
-          data.nama_usaha,
+    role:
+      savedData?.role || "",
 
-        data:
-          data.factors?.map(
-            (f) => f.score / 20
-          ) || [],
+  });
 
-        backgroundColor:
-          "rgba(37,99,235,0.2)",
+  // 🔥 HANDLE INPUT
+  const handleChange = (e) => {
 
-        borderColor:
-          "#1d4ed8",
-
-        borderWidth: 2,
-      },
-    ],
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const options = {
-    scales: {
-      r: {
-        min: 0,
-        max: 5,
+  // 🔥 HANDLE FOTO
+  const handlePhoto = (e) => {
 
-        ticks: {
-          stepSize: 1,
-        },
-      },
-    },
-  };
+    const file = e.target.files[0];
 
-  // 🔥 STATUS
-  const getStatus = (value) => {
+    if (!file) return;
 
-    if (value >= 85)
-      return {
-        label: "Optimal",
-        color:
-          "bg-green-100 text-green-700",
-      };
+    const reader = new FileReader();
 
-    if (value >= 70)
-      return {
-        label: "Stabil",
-        color:
-          "bg-blue-100 text-blue-700",
-      };
+    reader.onloadend = () => {
 
-    return {
-      label: "Perlu Perhatian",
-      color:
-        "bg-red-100 text-red-600",
+      setPhoto(reader.result);
+
+      localStorage.setItem(
+        "profilePhoto",
+        reader.result
+      );
     };
+
+    reader.readAsDataURL(file);
   };
 
-  // 🔥 FAKTOR
-  const faktorData =
-    data.factors || [];
+  // 🔥 HANDLE ROLE
+  const handleRole = (role) => {
 
-  // 🔥 SORT
-  const sorted =
-    [...faktorData].sort(
-      (a, b) => b.score - a.score
+    setFormData({
+      ...formData,
+      role,
+    });
+  };
+
+  // 🔥 SIMPAN
+  const handleSubmit = () => {
+
+    localStorage.setItem(
+      "profileData",
+      JSON.stringify(formData)
     );
 
-  const highest =
-    sorted[0];
+    alert("Profil berhasil diperbarui");
 
-  const lowest =
-    sorted[
-      sorted.length - 1
-    ];
+    // 🔥 FORCE REFRESH
+    window.location.href = "/beranda";
+  };
 
   return (
-    <div className="bg-[#f4f7fb] min-h-screen">
+    <div className="bg-[#f4f7fb] min-h-screen px-4 md:px-8 lg:px-16 py-6 md:py-10">
 
-      <NavbarDashboard />
+      {/* HEADER */}
+      <h1 className="text-2xl md:text-3xl font-bold text-blue-900">
+        Edit Profil
+      </h1>
 
-      <div className="px-4 md:px-8 lg:px-16 py-6 md:py-10">
+      <p className="text-gray-500 mt-2">
+        Kelola informasi akun dan profil usaha Anda.
+      </p>
 
-        {/* BACK */}
-        <button
-          onClick={() => navigate(-1)}
-          className="mb-6 text-blue-900 font-medium"
-        >
-          ← Kembali
-        </button>
+      {/* CARD */}
+      <div className="bg-white rounded-2xl border shadow-sm mt-8 p-8">
 
-        {/* HEADER */}
-        <div className="bg-white rounded-2xl p-8 shadow-sm border">
+        {/* FOTO */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-10">
 
-          <div className="flex justify-between items-start flex-wrap gap-6">
+          {/* PREVIEW */}
+          {photo ? (
 
-            <div>
+            <img
+              src={photo}
+              alt="profile"
+              className="w-28 h-28 rounded-full object-cover border-4 border-blue-100"
+            />
 
-              <h1 className="text-2xl md:text-3xl font-bold text-blue-900">
+          ) : (
 
-                {data.nama_usaha}
+            <div className="w-28 h-28 rounded-full bg-blue-900 text-white flex items-center justify-center text-2xl md:text-3xl font-bold">
 
-              </h1>
-
-              <p className="text-gray-500 mt-2">
-                Detail kesehatan organisasi UMKM
-                berdasarkan hasil asesmen terakhir.
-              </p>
-
-              {/* INFO */}
-              <div className="flex flex-wrap gap-3 mt-5">
-
-                <span className="bg-gray-100 px-4 py-2 rounded-full text-sm">
-
-                  {data.kategori}
-
-                </span>
-
-                <span className="bg-gray-100 px-4 py-2 rounded-full text-sm">
-
-                  {data.jenis_usaha}
-
-                </span>
-
-                <span className="bg-gray-100 px-4 py-2 rounded-full text-sm">
-
-                  {data.role}
-
-                </span>
-
-                <span className="bg-gray-100 px-4 py-2 rounded-full text-sm">
-
-                  {data.lama_usaha} Tahun
-
-                </span>
-
-              </div>
+              {(formData.nama || "U")
+                .charAt(0)
+                .toUpperCase()}
 
             </div>
 
-            {/* STATUS */}
-            <div className={`px-5 py-3 rounded-full text-sm font-semibold ${
-              data.total_score >= 85
-                ? "bg-green-100 text-green-700"
-                : data.total_score >= 70
-                ? "bg-blue-100 text-blue-700"
-                : "bg-red-100 text-red-600"
-            }`}>
+          )}
 
-              {data.status}
-
-            </div>
-
-          </div>
-
-          {/* SCORE */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-
-            <div className="bg-[#f4f7fb] p-5 rounded-xl">
-
-              <p className="text-sm text-gray-400">
-                Total Score
-              </p>
-
-              <h2 className="text-3xl font-bold text-blue-900 mt-2">
-
-                {data.total_score}
-
-              </h2>
-
-            </div>
-
-            <div className="bg-[#f4f7fb] p-5 rounded-xl">
-
-              <p className="text-sm text-gray-400">
-                Faktor Tertinggi
-              </p>
-
-              <h2 className="text-xl font-bold text-blue-900 mt-2">
-
-                {highest?.name}
-
-              </h2>
-
-            </div>
-
-            <div className="bg-[#f4f7fb] p-5 rounded-xl">
-
-              <p className="text-sm text-gray-400">
-                Faktor Terendah
-              </p>
-
-              <h2 className="text-xl font-bold text-red-500 mt-2">
-
-                {lowest?.name}
-
-              </h2>
-
-            </div>
-
-          </div>
-
-          {/* RADAR */}
-          <div className="mt-12">
-
-            <h2 className="text-xl font-semibold text-blue-900 mb-6">
-
-              Visualisasi 6 Faktor Strategis
-
-            </h2>
-
-            <div className="max-w-[650px] mx-auto">
-
-              <Radar
-                data={radarData}
-                options={options}
-              />
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* CARD FAKTOR */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-
-          {faktorData.map((item, i) => (
-
-            <div
-              key={i}
-              className="bg-white rounded-2xl shadow-sm border p-6"
-            >
-
-              <p className="text-sm text-gray-400">
-
-                {item.name}
-
-              </p>
-
-              <h2 className="text-3xl font-bold text-blue-900 mt-3">
-
-                {item.score}
-
-              </h2>
-
-              <div className="mt-4">
-
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  getStatus(item.score).color
-                }`}>
-
-                  {getStatus(item.score).label}
-
-                </span>
-
-              </div>
-
-            </div>
-
-          ))}
-
-        </div>
-
-        {/* TABLE */}
-        <div className="bg-white rounded-2xl shadow-sm border overflow-hidden mt-10">
-
-          <div className="px-6 py-5 border-b">
+          {/* UPLOAD */}
+          <div>
 
             <h2 className="font-semibold text-blue-900">
-
-              Detail Analisis Faktor
-
+              Foto Profil
             </h2>
+
+            <p className="text-sm text-gray-500 mt-1">
+              Upload foto profile akun Anda.
+            </p>
+
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePhoto}
+              className="mt-4"
+            />
 
           </div>
 
-          <table className="w-full text-sm">
+        </div>
 
-            <thead className="bg-gray-50 text-gray-500">
+        {/* FORM */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-              <tr>
+          {/* NAMA */}
+          <div>
 
-                <th className="p-4 text-left">
-                  Faktor
-                </th>
+            <label className="text-sm font-medium">
+              Nama Pengguna
+            </label>
 
-                <th>
-                  Score
-                </th>
+            <input
+              type="text"
+              name="nama"
+              value={formData.nama}
+              onChange={handleChange}
+              className="w-full mt-1 p-3 border rounded-xl bg-gray-50"
+            />
 
-                <th>
-                  Status
-                </th>
+          </div>
 
-                <th>
-                  Insight
-                </th>
+          {/* NAMA USAHA */}
+          <div>
 
-              </tr>
+            <label className="text-sm font-medium">
+              Nama Usaha
+            </label>
 
-            </thead>
+            <input
+              type="text"
+              name="namaUsaha"
+              value={formData.namaUsaha}
+              onChange={handleChange}
+              className="w-full mt-1 p-3 border rounded-xl bg-gray-50"
+            />
 
-            <tbody>
+          </div>
 
-              {faktorData.map((item, i) => {
+          {/* JENIS */}
+          <div>
 
-                const status =
-                  getStatus(item.score);
+            <label className="text-sm font-medium">
+              Jenis Usaha
+            </label>
 
-                return (
+            <input
+              type="text"
+              name="jenisUsaha"
+              value={formData.jenisUsaha}
+              onChange={handleChange}
+              className="w-full mt-1 p-3 border rounded-xl bg-gray-50"
+            />
 
-                  <tr
-                    key={i}
-                    className="border-t text-center"
-                  >
+          </div>
 
-                    <td className="p-4 text-left font-medium">
+          {/* LAMA */}
+          <div>
 
-                      {item.name}
+            <label className="text-sm font-medium">
+              Lama Usaha
+            </label>
 
-                    </td>
+            <input
+              type="number"
+              name="lamaUsaha"
+              value={formData.lamaUsaha}
+              onChange={handleChange}
+              className="w-full mt-1 p-3 border rounded-xl bg-gray-50"
+            />
 
-                    <td className="font-semibold text-blue-900">
+          </div>
 
-                      {item.score}
+          {/* USIA */}
+          <div>
 
-                    </td>
+            <label className="text-sm font-medium">
+              Usia
+            </label>
 
-                    <td>
+            <input
+              type="number"
+              name="usia"
+              value={formData.usia}
+              onChange={handleChange}
+              className="w-full mt-1 p-3 border rounded-xl bg-gray-50"
+            />
 
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${status.color}`}>
+          </div>
 
-                        {status.label}
+          {/* ROLE */}
+          <div>
 
-                      </span>
+            <label className="text-sm font-medium">
+              Posisi
+            </label>
 
-                    </td>
+            <div className="flex gap-4 mt-3">
 
-                    <td className="text-gray-500">
+              <button
+                type="button"
+                onClick={() =>
+                  handleRole("Pemilik")
+                }
+                className={`px-5 py-2 rounded-xl border transition ${
+                  formData.role === "Pemilik"
+                    ? "bg-blue-900 text-white"
+                    : "bg-white"
+                }`}
+              >
+                Pemilik
+              </button>
 
-                      {item.score >= 85
-                        ? "Performa sangat optimal"
-                        : item.score >= 70
-                        ? "Performa cukup baik"
-                        : "Membutuhkan peningkatan"}
+              <button
+                type="button"
+                onClick={() =>
+                  handleRole("Karyawan")
+                }
+                className={`px-5 py-2 rounded-xl border transition ${
+                  formData.role === "Karyawan"
+                    ? "bg-green-600 text-white"
+                    : "bg-white"
+                }`}
+              >
+                Karyawan
+              </button>
 
-                    </td>
+            </div>
 
-                  </tr>
-                );
-              })}
+          </div>
 
-            </tbody>
+        </div>
 
-          </table>
+        {/* FOOTER */}
+        <div className="flex justify-between items-center mt-10 pt-6 border-t">
+
+          <p className="text-xs text-gray-400">
+            🔒 Data profile tersimpan aman.
+          </p>
+
+          <div className="flex gap-4">
+
+            <button
+              onClick={() =>
+                navigate("/beranda")
+              }
+              className="text-gray-500"
+            >
+              Batal
+            </button>
+
+            <button
+              onClick={handleSubmit}
+              className="bg-blue-900 text-white px-6 py-3 rounded-xl"
+            >
+              Simpan Perubahan
+            </button>
+
+          </div>
 
         </div>
 

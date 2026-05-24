@@ -20,7 +20,6 @@ export default function Profil() {
   const [formData, setFormData] = useState({
     namaUsaha: "",
     jenisUsaha: "",
-    kategori: "",
     lamaUsaha: "",
     usia: "",
     gender: "Perempuan",
@@ -41,7 +40,6 @@ export default function Profil() {
     if (
       !formData.namaUsaha ||
       !formData.jenisUsaha ||
-      !formData.kategori ||
       !formData.lamaUsaha ||
       !formData.usia
     ) {
@@ -61,18 +59,18 @@ export default function Profil() {
     );
 
     // 🔥 SIMPAN PROFILE
-    const oldData = JSON.parse(
-      localStorage.getItem("profileData")
-    );
+const oldData = JSON.parse(
+  localStorage.getItem("profileData")
+);
 
-    localStorage.setItem(
-      "profileData",
-      JSON.stringify({
-        ...oldData,
-        ...formData,
-        role,
-      })
-    );
+localStorage.setItem(
+  "profileData",
+  JSON.stringify({
+    ...oldData,
+    ...formData,
+    role,
+  })
+);
 
     navigate("/profil-selesai");
   };
@@ -167,58 +165,8 @@ export default function Profil() {
                 value={formData.jenisUsaha}
                 onChange={handleChange}
                 className="w-full p-2 mt-1 border rounded-lg bg-gray-50"
-                placeholder="Contoh: Coffee Shop"
+                placeholder="Retail / Jasa / dll"
               />
-
-            </div>
-
-            {/* KATEGORI UMKM */}
-            <div>
-
-              <label className="text-sm font-medium">
-                Kategori UMKM
-              </label>
-
-              <select
-                name="kategori"
-                value={formData.kategori}
-                onChange={handleChange}
-                className="w-full p-2 mt-1 border rounded-lg bg-gray-50"
-              >
-
-                <option value="">
-                  Pilih kategori
-                </option>
-
-                <option value="Kuliner">
-                  Kuliner
-                </option>
-
-                <option value="Fashion">
-                  Fashion
-                </option>
-
-                <option value="Retail">
-                  Retail
-                </option>
-
-                <option value="Jasa">
-                  Jasa
-                </option>
-
-                <option value="Kerajinan">
-                  Kerajinan
-                </option>
-
-                <option value="Teknologi">
-                  Teknologi
-                </option>
-
-                <option value="Lainnya">
-                  Lainnya
-                </option>
-
-              </select>
 
             </div>
 
