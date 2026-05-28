@@ -9,7 +9,7 @@ import Asesmen from "./pages/asesmen"; // 🔥 WAJIB
 import Hasil from "./pages/hasil";
 import ProfilSelesai from "./pages/profilSelesai";
 import Settings from "./pages/settings";
-import EditProfil from "./pages/Editprofil";
+import EditProfil from "./pages/EditProfil";
 import Perbandingan from "./pages/perbandingan";
 import Rekomendasi from "./pages/rekomendasi";
 import Eksplorasi from "./pages/eksplorasi";
