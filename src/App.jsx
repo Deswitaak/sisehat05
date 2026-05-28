@@ -38,7 +38,7 @@ function App() {
         <Route path="/eksplorasi" element={<Eksplorasi />} />
          <Route path="/detailumkm" element={<DetailUMKM />}/>
         <Route path="/settings" element={<Settings />} />
-        <Route path="/profil" element={<EditProfil />} />
+        <Route path="/profil" element={<EditProfile />} />
       
 
       </Routes>
