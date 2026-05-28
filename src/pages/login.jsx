@@ -12,27 +12,21 @@ export default function Login() {
     password: "",
   });
 
-  // HANDLE LOGIN (Koneksi ke Back End PHP)
   const handleLogin = () => {
   if (!form.email || !form.password) {
     alert("Harap masukkan email dan password");
     return;
   }
 
-  localStorage.setItem("isLogin", "true");
+  // ambil data user registrasi
+  const savedUser = JSON.parse(localStorage.getItem("user"));
 
-  localStorage.setItem(
-    "user",
-    JSON.stringify({
-      full_name: "User Demo",
-      email: form.email,
-    })
-  );
+  localStorage.setItem("isLogin", "true");
 
   localStorage.setItem(
     "profileData",
     JSON.stringify({
-      nama: "User Demo",
+      nama: savedUser?.name || form.email,
     })
   );
 
