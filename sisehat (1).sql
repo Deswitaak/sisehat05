@@ -1,37 +1,124 @@
--- 1. TABEL USERS (Untuk Fitur Login/Register)
-CREATE TABLE IF NOT EXISTS `users` (
-  `id_user` INT AUTO_INCREMENT PRIMARY KEY,
-  `username` VARCHAR(50) NOT NULL UNIQUE,
-  `password` VARCHAR(255) NOT NULL,
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 18, 2026 at 04:43 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.5.5
 
--- 2. TABEL USAHA (Untuk Simpan Profile Usaha)
-CREATE TABLE IF NOT EXISTS `usaha` (
-  `id_usaha` INT AUTO_INCREMENT PRIMARY KEY,
-  `id_user` INT UNIQUE,
-  `nama_usaha` VARCHAR(100) NOT NULL,
-  `kategori` VARCHAR(50) NOT NULL, -- Contoh: Kuliner, Fashion, dll.
-  `jenis_usaha` VARCHAR(100) NOT NULL,
-  `lama_usaha` INT NOT NULL,
-  `role` VARCHAR(50) NOT NULL,
-  `jenis_kelamin` VARCHAR(20),
-  `usia_pemilik` INT,
-  FOREIGN KEY (`id_user`) REFERENCES `users`(`id_user`) ON DELETE CASCADE
-);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
--- 3. TABEL ASESMEN (Untuk Simpan Skor Akhir & Nilai Detail Faktor per Sesi)
-CREATE TABLE IF NOT EXISTS `asesmen` (
-  `id_asesmen` INT AUTO_INCREMENT PRIMARY KEY,
-  `id_user` INT NOT NULL,
-  `total_score` DECIMAL(5,2) NOT NULL,
-  `status` VARCHAR(20) NOT NULL, -- Optimal, Stabil, Perlu Perhatian
-  `ov_score` DECIMAL(5,2) NOT NULL, -- Faktor 1
-  `li_score` DECIMAL(5,2) NOT NULL, -- Faktor 2
-  `ir_score` DECIMAL(5,2) NOT NULL, -- Faktor 3
-  `ep_score` DECIMAL(5,2) NOT NULL, -- Faktor 4
-  `os_score` DECIMAL(5,2) NOT NULL, -- Faktor 5
-  `qw_score` DECIMAL(5,2) NOT NULL, -- Faktor 6
-  `tanggal_asesmen` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (`id_user`) REFERENCES `users`(`id_user`) ON DELETE CASCADE
-);
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `sisehat`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assessment`
+--
+
+CREATE TABLE `assessment` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `skor_values` float DEFAULT NULL,
+  `skor_leader` float DEFAULT NULL,
+  `skor_resources` float DEFAULT NULL,
+  `skor_operational` float DEFAULT NULL,
+  `skor_workplace` float DEFAULT NULL,
+  `skor_economic` float DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usaha`
+--
+
+CREATE TABLE `usaha` (
+  `id` int(11) NOT NULL,
+  `nama_usaha` varchar(255) NOT NULL,
+  `jenis_usaha` varchar(100) DEFAULT NULL,
+  `lama_usaha` int(11) DEFAULT NULL,
+  `usia_pemilik` int(11) DEFAULT NULL,
+  `posisi` enum('pemilik','karyawan') DEFAULT NULL,
+  `jenis_kelamin` enum('perempuan','laki-laki') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `whatsapp_number` varchar(20) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `assessment`
+--
+ALTER TABLE `assessment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `usaha`
+--
+ALTER TABLE `usaha`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `assessment`
+--
+ALTER TABLE `assessment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `usaha`
+--
+ALTER TABLE `usaha`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

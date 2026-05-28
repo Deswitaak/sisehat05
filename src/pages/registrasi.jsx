@@ -22,24 +22,20 @@ export default function Registrasi() {
     });
   };
 
-  // HANDLE REGISTER (Koneksi ke Back End PHP)
- const handleRegister = () => {
+  // HANDLE REGISTER
+const handleRegister = () => {
+  // Validasi sederhana di sisi client
   if (!form.name || !form.email || !form.phone || !form.password) {
     alert("Harap isi semua kolom data!");
     return;
   }
 
-  // Simpan data lokal
+  // Simpan ke localStorage
   localStorage.setItem("user", JSON.stringify(form));
 
-  localStorage.setItem(
-    "profileData",
-    JSON.stringify({
-      nama: form.name,
-    })
-  );
-
   alert("Registrasi berhasil!");
+
+  // pindah ke login
   navigate("/login");
 };
 

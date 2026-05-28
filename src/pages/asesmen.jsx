@@ -143,14 +143,14 @@ export default function Asesmen() {
       });
 
       const avg = resultFactors.reduce((acc, r) => acc + r.score, 0) / resultFactors.length;
+
+// 🔥 pindah ke halaman hasil
 navigate("/hasil", {
   state: {
     factors: resultFactors,
     total: Math.round(avg),
-    role,
   },
 });
-
     }
   };
 

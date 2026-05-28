@@ -18,15 +18,30 @@ export default function Login() {
     return;
   }
 
-  // ambil data user registrasi
-  const savedUser = JSON.parse(localStorage.getItem("user"));
+  // ambil data user dari registrasi
+  const registeredUser = JSON.parse(localStorage.getItem("user"));
+
+  // cek email & password
+  if (
+    registeredUser?.email !== form.email ||
+    registeredUser?.password !== form.password
+  ) {
+    alert("Email atau password salah!");
+    return;
+  }
 
   localStorage.setItem("isLogin", "true");
+
+  // simpan user login
+  localStorage.setItem(
+    "user",
+    JSON.stringify(registeredUser)
+  );
 
   localStorage.setItem(
     "profileData",
     JSON.stringify({
-      nama: savedUser?.name || form.email,
+      nama: registeredUser.name,
     })
   );
 
