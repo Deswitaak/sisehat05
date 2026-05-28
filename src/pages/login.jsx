@@ -13,48 +13,32 @@ export default function Login() {
   });
 
   // HANDLE LOGIN (Koneksi ke Back End PHP)
-  const handleLogin = async () => {
-    // Validasi input kosong
-    if (!form.email || !form.password) {
-      alert("Harap masukkan email dan password");
-      return;
-    }
+  const handleLogin = () => {
+  if (!form.email || !form.password) {
+    alert("Harap masukkan email dan password");
+    return;
+  }
 
-    try {
-      // Mengirim data login ke API login.php
-      const response = await fetch('http://localhost/sisehat-main/api-sisehat/login.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: form.email,
-          password: form.password
-        }),
-      });
+  localStorage.setItem("isLogin", "true");
 
-      // Mengambil respon JSON dari PHP
-      const result = await response.json();
+  localStorage.setItem(
+    "user",
+    JSON.stringify({
+      full_name: "User Demo",
+      email: form.email,
+    })
+  );
 
-      if (result.status === "success") {
-        // Simpan status login dan data user ke localStorage
-        localStorage.setItem("isLogin", "true");
-        localStorage.setItem("user", JSON.stringify(result.user));
-        
-        // Simpan nama untuk keperluan profil di dashboard
-        localStorage.setItem("profileData", JSON.stringify({ nama: result.user.full_name }));
+  localStorage.setItem(
+    "profileData",
+    JSON.stringify({
+      nama: "User Demo",
+    })
+  );
 
-        alert("Login Berhasil!");
-        navigate("/beranda"); // Pindah ke halaman beranda/dashboard
-      } else {
-        // Tampilkan pesan error dari PHP (Email/Password salah)
-        alert("Gagal Login: " + result.message);
-      }
-    } catch (error) {
-      console.error("Error koneksi login:", error);
-      alert("Tidak dapat terhubung ke server. Pastikan Apache & MySQL di XAMPP sudah menyala.");
-    }
-  };
+  alert("Login Berhasil!");
+  navigate("/beranda");
+};
 
   return (
     <div className="min-h-screen flex">

@@ -143,38 +143,14 @@ export default function Asesmen() {
       });
 
       const avg = resultFactors.reduce((acc, r) => acc + r.score, 0) / resultFactors.length;
+navigate("/hasil", {
+  state: {
+    factors: resultFactors,
+    total: Math.round(avg),
+    role,
+  },
+});
 
-      // 2. KIRIM KE BACK END (predict.php)
-      try {
-        const response = await fetch('http://localhost/sisehat-main/api-sisehat/predict.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            user_id: userId,
-            role: role,
-            answers: answers // Mengirim semua mentah jawaban untuk diolah PHP
-          }),
-        });
-
-        const apiResult = await response.json();
-
-        if (apiResult.status === "success") {
-          console.log("Data berhasil disimpan ke database");
-          // Navigasi ke halaman hasil dengan membawa data skor
-          navigate("/hasil", {
-            state: {
-              factors: resultFactors,
-              total: Math.round(avg),
-              role,
-            },
-          });
-        } else {
-          alert("Gagal menyimpan hasil: " + apiResult.message);
-        }
-      } catch (error) {
-        console.error("Error submitting assessment:", error);
-        alert("Terjadi kesalahan koneksi ke server.");
-      }
     }
   };
 

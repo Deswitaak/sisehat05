@@ -23,47 +23,25 @@ export default function Registrasi() {
   };
 
   // HANDLE REGISTER (Koneksi ke Back End PHP)
-  const handleRegister = async () => {
-    // Validasi sederhana di sisi client
-    if (!form.name || !form.email || !form.phone || !form.password) {
-      alert("Harap isi semua kolom data!");
-      return;
-    }
+ const handleRegister = () => {
+  if (!form.name || !form.email || !form.phone || !form.password) {
+    alert("Harap isi semua kolom data!");
+    return;
+  }
 
-    try {
-      // Mengirim data ke API register.php
-      const response = await fetch('http://localhost/sisehat-main/api-sisehat/register.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          full_name: form.name,
-          email: form.email,
-          whatsapp_number: form.phone,
-          password: form.password
-        }),
-      });
+  // Simpan data lokal
+  localStorage.setItem("user", JSON.stringify(form));
 
-      // Mengambil respon dari server
-      const result = await response.json();
+  localStorage.setItem(
+    "profileData",
+    JSON.stringify({
+      nama: form.name,
+    })
+  );
 
-      if (result.status === "success") {
-        // Simpan ke localStorage sebagai data cadangan (opsional)
-        localStorage.setItem("user", JSON.stringify(form));
-        localStorage.setItem("profileData", JSON.stringify({ nama: form.name }));
-
-        alert("Registrasi berhasil! Silakan login.");
-        navigate("/login");
-      } else {
-        // Jika gagal karena email sudah terdaftar atau masalah database lainnya
-        alert("Gagal Registrasi: " + result.message);
-      }
-    } catch (error) {
-      console.error("Error koneksi ke API:", error);
-      alert("Tidak dapat terhubung ke server. Pastikan XAMPP (Apache & MySQL) sudah aktif.");
-    }
-  };
+  alert("Registrasi berhasil!");
+  navigate("/login");
+};
 
   return (
     <div className="min-h-screen flex">
